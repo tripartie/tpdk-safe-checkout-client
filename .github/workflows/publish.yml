@@ -1,0 +1,45 @@
+name: Continuous Delivery (Publish)
+
+permissions:
+  contents: write
+  deployments: write
+
+on:
+  workflow_dispatch:
+    branches:
+      - main
+
+jobs:
+
+  publish_tag:
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: packagist
+      url: https://packagist.org/packages/tripartie/safe-checkout
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - run: wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+        name: Install YQ
+
+      - run: sudo apt install -y jq
+        name: Install JQ
+
+      - run: curl ${{ vars.OPENAPI_SCHEMA_HTTP }} -o oas-upstream.yml
+        name: Download latest OpenAPI
+
+      - run: echo tag=`cat oas-upstream.yml | yq -o=json | jq .info.version | tr -d '"\n'` >> "$GITHUB_OUTPUT"
+        name: Determine schema version
+        id: version
+
+      - uses: ncipollo/release-action@v1
+        with:
+          tag: v${{ steps.version.outputs.tag }}
+          body: |
+            The CHANGES are available in the [technical hub](https://hub.tripartie.com).
+            Create an issue in this repository to gain support for the tpdk low-level client.
+            The versioning match the API schema'.

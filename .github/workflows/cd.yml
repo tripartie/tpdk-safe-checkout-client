@@ -1,0 +1,66 @@
+name: Continuous Delivery (PR)
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# Controls when the action will run.
+on:
+  workflow_dispatch:
+    branches:
+      - main
+  schedule:
+    - cron: "0 8 * * 1"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  generation:
+    name: TPDK Generation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        name: Setup node
+        with:
+          node-version: '18'
+
+      - run: sudo apt install -y jq
+        name: Install JQ
+
+      - run: curl ${{ vars.OPENAPI_SCHEMA_HTTP }} -o oas-upstream.json
+        name: Download latest OpenAPI
+
+      - run: echo tag=`cat oas-upstream.json | jq .info.version | tr -d '"\n'` >> "$GITHUB_OUTPUT"
+        name: Determine schema version
+        id: version
+
+      - run: npm install @openapitools/openapi-generator-cli -g
+        name: Setup OpenAPI Generator
+
+      - name: Clean PHP docs
+        run: rm -fR ./docs || true
+
+      - name: Clean PHP lib
+        run: rm -fR ./lib || true
+
+      - name: Clean PHP test
+        run: rm -fR ./test || true
+
+      - name: TPDK for PHP
+        run: openapi-generator-cli generate -g php --git-repo-id safe-checkout --git-user-id tripartie -o ./ -i oas-upstream.json --additional-properties=invokerPackage=Tripartie\\\\SafeCheckout,variableNamingConvention=camelCase
+
+      - name: Cleanup
+        run: rm -f oas-upstream.json openapitools.json
+
+      - name: Patch license (PHP)
+        run: sed -i 's/unlicense/Apache-2\.0/g' ./composer.json
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: sync upstream changes - openapi generation - ${{ steps.version.outputs.tag }}
+          title: "[tpdk][${{ steps.version.outputs.tag }}] sync from upstream openapi changes"

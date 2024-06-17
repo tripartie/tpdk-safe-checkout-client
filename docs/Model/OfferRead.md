@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ulid** | **string** |  |
-**status** | **string** |  | [default to 'issued']
+**status** | **string** |  |
 **publicUrl** | **string** | The public URL for your Ad/Offer on your marketplace. | [optional]
 **redirectUrl** | **string** | Fill-in that field IF you intend to redirect your customer instead of using a WebView. | [optional]
 **organization** | [**\Tripartie\SafeCheckout\Model\OfferOrganizationRead**](OfferOrganizationRead.md) |  | [optional]

@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **title** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **unitPrice** | **float** |  | [optional]
+**minNegotiableUnitPrice** | **float** |  | [optional]
+**allowToNegotiateUnitPrice** | **bool** |  | [optional]
 **currencyCode** | **string** |  | [optional] [default to 'EUR']
 **shippingAllowed** | **bool** | That toggle allows the seller to propose shipping for its item. If set in conjunction of shippingCarrier, the label will be automatically generated. Also, it will restrict the carrier to the limited subset defined. | [optional]
 **handDeliveryAllowed** | **bool** | Enable both parties to finalize the transaction in person rather than using delivery. A QR Code must be scanned by the seller once the buyer claims the product. | [optional] [default to true]

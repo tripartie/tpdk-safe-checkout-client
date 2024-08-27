@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly]
+**mainAddress** | **object** |  | [optional]
 **firstName** | **string** |  | [optional]
 **lastName** | **string** |  | [optional]
 **publicName** | **string** |  | [optional]
@@ -19,7 +20,12 @@ Name | Type | Description | Notes
 **updatedAt** | **\DateTime** |  | [optional] [readonly]
 **organization** | [**\Tripartie\SafeCheckout\Model\UserOrganizationCollectionRead**](UserOrganizationCollectionRead.md) |  | [optional]
 **wallet** | [**\Tripartie\SafeCheckout\Model\UserWalletCollectionRead**](UserWalletCollectionRead.md) |  | [optional]
+**externalId** | **string** |  | [optional]
+**providerName** | **string** |  | [optional]
+**providerCreatedAt** | **\DateTime** |  | [optional] [readonly]
+**providerUpdatedAt** | **\DateTime** |  | [optional] [readonly]
 **iri** | **string** |  | [optional] [readonly]
 **secondAuthFactor** | **bool** |  | [optional] [readonly]
+**processorStatus** | **string** | Automagically infer on what state the entity is at the Payment Processor. | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

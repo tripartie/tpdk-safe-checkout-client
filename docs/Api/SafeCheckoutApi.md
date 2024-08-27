@@ -10,16 +10,12 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 | [**apiOffersUlidPatch()**](SafeCheckoutApi.md#apiOffersUlidPatch) | **PATCH** /offers/{ulid} | Update existing Offer |
 | [**apiOffersUlidmediasIdDelete()**](SafeCheckoutApi.md#apiOffersUlidmediasIdDelete) | **DELETE** /offers/{ulid}/medias/{id} | Removes the Media resource. |
 | [**apiOffersUlidmediasPost()**](SafeCheckoutApi.md#apiOffersUlidmediasPost) | **POST** /offers/{ulid}/medias | Upload a picture for a given Offer |
-| [**apiTransactionsUlidevaluationsPost()**](SafeCheckoutApi.md#apiTransactionsUlidevaluationsPost) | **POST** /transactions/{ulid}/evaluations | Submit an Evaluation for the Transaction |
-| [**apiTransactionsUlidparcelsGetCollection()**](SafeCheckoutApi.md#apiTransactionsUlidparcelsGetCollection) | **GET** /transactions/{ulid}/parcels | Retrieves the collection of Parcel resources. |
-| [**apiTransactionsUlidparcelsIdDelete()**](SafeCheckoutApi.md#apiTransactionsUlidparcelsIdDelete) | **DELETE** /transactions/{ulid}/parcels/{id} | Removes the Parcel resource. |
-| [**apiTransactionsUlidparcelsPost()**](SafeCheckoutApi.md#apiTransactionsUlidparcelsPost) | **POST** /transactions/{ulid}/parcels | Creates a Parcel resource. |
 
 
 ## `apiOffersGetCollection()`
 
 ```php
-apiOffersGetCollection($page, $title, $publicUrl, $publicUrl2, $unitPrice, $unitPrice2, $itemCount, $itemCount2, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $metadata, $offerMetadata, $sellerMetadata, $nature, $condition, $shippingAllowed): \Tripartie\SafeCheckout\Model\OfferCollectionRead[]
+apiOffersGetCollection($page, $title, $publicUrl, $publicUrl2, $unitPrice, $unitPrice2, $itemCount, $itemCount2, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $metadata, $offerMetadata, $sellerMetadata, $nature, $condition, $status, $shippingAllowed): \Tripartie\SafeCheckout\Model\OfferCollectionRead[]
 ```
 
 Search amongst Offers
@@ -60,10 +56,11 @@ $offerMetadata = ["External-ID","1254A"]; // string[] | Flattened OrderedMap for
 $sellerMetadata = ["External-ID","1254A"]; // string[] | Flattened OrderedMap for seller.metadata. Must be a multiple of two items count. Explicitly set \"null\" for desired value.
 $nature = service; // string | Filter on a limited subset of nature
 $condition = NEW; // string | Filter on a limited subset of condition
+$status = issued; // string | Filter on a limited subset of status
 $shippingAllowed = True; // bool | 
 
 try {
-    $result = $apiInstance->apiOffersGetCollection($page, $title, $publicUrl, $publicUrl2, $unitPrice, $unitPrice2, $itemCount, $itemCount2, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $metadata, $offerMetadata, $sellerMetadata, $nature, $condition, $shippingAllowed);
+    $result = $apiInstance->apiOffersGetCollection($page, $title, $publicUrl, $publicUrl2, $unitPrice, $unitPrice2, $itemCount, $itemCount2, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $metadata, $offerMetadata, $sellerMetadata, $nature, $condition, $status, $shippingAllowed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SafeCheckoutApi->apiOffersGetCollection: ', $e->getMessage(), PHP_EOL;
@@ -91,6 +88,7 @@ try {
 | **sellerMetadata** | [**string[]**](../Model/string.md)| Flattened OrderedMap for seller.metadata. Must be a multiple of two items count. Explicitly set \&quot;null\&quot; for desired value. | [optional] |
 | **nature** | **string**| Filter on a limited subset of nature | [optional] |
 | **condition** | **string**| Filter on a limited subset of condition | [optional] |
+| **status** | **string**| Filter on a limited subset of status | [optional] |
 | **shippingAllowed** | **bool**|  | [optional] |
 
 ### Return type
@@ -192,11 +190,6 @@ $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAp
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-// Configure API key authorization: personaAuthKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('X-Persona-Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Persona-Authorization', 'Bearer');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -229,7 +222,7 @@ try {
 
 ### Authorization
 
-[jwtPersonalKey](../../README.md#jwtPersonalKey), [personaAuthKey](../../README.md#personaAuthKey), [oauth](../../README.md#oauth)
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -324,11 +317,6 @@ $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAp
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-// Configure API key authorization: personaAuthKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('X-Persona-Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Persona-Authorization', 'Bearer');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -362,7 +350,7 @@ void (empty response body)
 
 ### Authorization
 
-[jwtPersonalKey](../../README.md#jwtPersonalKey), [personaAuthKey](../../README.md#personaAuthKey), [oauth](../../README.md#oauth)
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -389,11 +377,6 @@ Creates a Media resource.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure API key authorization: personaAuthKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('X-Persona-Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Persona-Authorization', 'Bearer');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -429,282 +412,11 @@ try {
 
 ### Authorization
 
-[personaAuthKey](../../README.md#personaAuthKey), [oauth](../../README.md#oauth)
+[oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
 - **Content-Type**: `multipart/form-data`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiTransactionsUlidevaluationsPost()`
-
-```php
-apiTransactionsUlidevaluationsPost($ulid, $evaluationWrite): \Tripartie\SafeCheckout\Model\EvaluationRead
-```
-
-Submit an Evaluation for the Transaction
-
-**Only authenticated** complainant and seller **CAN** issue an evaluation **WHEN** the transaction reached a final state.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: personaAuthKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('X-Persona-Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Persona-Authorization', 'Bearer');
-
-
-$apiInstance = new Tripartie\SafeCheckout\Api\SafeCheckoutApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$ulid = 'ulid_example'; // string | Evaluation identifier
-$evaluationWrite = new \Tripartie\SafeCheckout\Model\EvaluationWrite(); // \Tripartie\SafeCheckout\Model\EvaluationWrite | The new Evaluation resource
-
-try {
-    $result = $apiInstance->apiTransactionsUlidevaluationsPost($ulid, $evaluationWrite);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SafeCheckoutApi->apiTransactionsUlidevaluationsPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **ulid** | **string**| Evaluation identifier | |
-| **evaluationWrite** | [**\Tripartie\SafeCheckout\Model\EvaluationWrite**](../Model/EvaluationWrite.md)| The new Evaluation resource | |
-
-### Return type
-
-[**\Tripartie\SafeCheckout\Model\EvaluationRead**](../Model/EvaluationRead.md)
-
-### Authorization
-
-[personaAuthKey](../../README.md#personaAuthKey)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiTransactionsUlidparcelsGetCollection()`
-
-```php
-apiTransactionsUlidparcelsGetCollection($ulid, $page): object[]
-```
-
-Retrieves the collection of Parcel resources.
-
-Retrieves the collection of Parcel resources.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: jwtPersonalKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure API key authorization: personaAuthKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('X-Persona-Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Persona-Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Tripartie\SafeCheckout\Api\SafeCheckoutApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$ulid = 'ulid_example'; // string | 
-$page = 1; // int | The collection page number
-
-try {
-    $result = $apiInstance->apiTransactionsUlidparcelsGetCollection($ulid, $page);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SafeCheckoutApi->apiTransactionsUlidparcelsGetCollection: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **ulid** | **string**|  | |
-| **page** | **int**| The collection page number | [optional] [default to 1] |
-
-### Return type
-
-**object[]**
-
-### Authorization
-
-[jwtPersonalKey](../../README.md#jwtPersonalKey), [personaAuthKey](../../README.md#personaAuthKey), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiTransactionsUlidparcelsIdDelete()`
-
-```php
-apiTransactionsUlidparcelsIdDelete($ulid, $id)
-```
-
-Removes the Parcel resource.
-
-Removes the Parcel resource.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: jwtPersonalKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new Tripartie\SafeCheckout\Api\SafeCheckoutApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$ulid = 'ulid_example'; // string | 
-$id = 56; // int | 
-
-try {
-    $apiInstance->apiTransactionsUlidparcelsIdDelete($ulid, $id);
-} catch (Exception $e) {
-    echo 'Exception when calling SafeCheckoutApi->apiTransactionsUlidparcelsIdDelete: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **ulid** | **string**|  | |
-| **id** | **int**|  | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[jwtPersonalKey](../../README.md#jwtPersonalKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiTransactionsUlidparcelsPost()`
-
-```php
-apiTransactionsUlidparcelsPost($ulid, $parcelWrite): object
-```
-
-Creates a Parcel resource.
-
-Creates a Parcel resource.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: jwtPersonalKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure API key authorization: personaAuthKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('X-Persona-Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Persona-Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Tripartie\SafeCheckout\Api\SafeCheckoutApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$ulid = 'ulid_example'; // string | 
-$parcelWrite = new \Tripartie\SafeCheckout\Model\ParcelWrite(); // \Tripartie\SafeCheckout\Model\ParcelWrite | The new Parcel resource
-
-try {
-    $result = $apiInstance->apiTransactionsUlidparcelsPost($ulid, $parcelWrite);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SafeCheckoutApi->apiTransactionsUlidparcelsPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **ulid** | **string**|  | |
-| **parcelWrite** | [**\Tripartie\SafeCheckout\Model\ParcelWrite**](../Model/ParcelWrite.md)| The new Parcel resource | |
-
-### Return type
-
-**object**
-
-### Authorization
-
-[jwtPersonalKey](../../README.md#jwtPersonalKey), [personaAuthKey](../../README.md#personaAuthKey), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

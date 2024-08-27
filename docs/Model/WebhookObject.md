@@ -5,19 +5,19 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ulid** | **string** |  |
-**status** | **string** |  | [default to 'issued']
+**status** | **string** |  |
 **publicUrl** | **string** | The public URL for your Ad/Offer on your marketplace. | [optional]
 **redirectUrl** | **string** | Fill-in that field IF you intend to redirect your customer instead of using a WebView. | [optional]
 **organization** | [**\Tripartie\SafeCheckout\Model\OfferOrganizationRead**](OfferOrganizationRead.md) |  | [optional]
-**seller** | **string** |  |
-**presetBuyer** | **string** | Limit the offer to a particular buyer. Useful if the offer was issued from an auction for instance. | [optional]
+**seller** | [**\Tripartie\SafeCheckout\Model\OfferPersonaRead**](OfferPersonaRead.md) |  |
+**presetBuyer** | [**\Tripartie\SafeCheckout\Model\OfferPersonaRead**](OfferPersonaRead.md) |  | [optional]
 **nature** | **string** | This WILL affect the assigned workflow. Choosing service will disable delivery for example. Refer to our technical hub for more information. | [default to 'physical_item']
 **title** | **string** |  | [optional]
 **unitPrice** | **float** |  | [optional]
 **currencyCode** | **string** |  | [default to 'EUR']
 **itemCount** | **int** |  | [optional] [default to 1]
 **condition** | **string** |  | [optional] [default to 'USED']
-**weightInGram** | **int** |  |
+**weightInGram** | **int** | Accepted values between 500g (0.5kg) and 10,000g (10kg). |
 **shippingAllowed** | **bool** | That toggle allows the seller to propose shipping for its item. If set in conjunction of shippingCarrier, the label will be automatically generated. Also, it will restrict the carrier to the limited subset defined. |
 **handDeliveryAllowed** | **bool** | Enable both parties to finalize the transaction in person rather than using delivery. A QR Code must be scanned by the seller once the buyer claims the product. | [default to true]
 **shippingCarriers** | **string[]** | If you wish to enable automated shipping label generation through a specific provider, specify it there. | [optional]
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **firstName** | **string** |  | [optional]
 **lastName** | **string** |  | [optional]
 **gender** | **string** |  | [optional] [default to 'RATHER_NOT_SAY']
-**dateOfBirth** | **\DateTime** |  | [optional]
+**dateOfBirth** | **mixed** |  | [optional]
 **language** | **string** | That data is used for rendering the frontend application with given language. If not set, will be inferred. Custom codes can be issued for specific requirements. | [optional]
 **email** | **string** |  | [optional]
 **mobilePhoneNumber** | **string** |  | [optional]
@@ -39,5 +39,6 @@ Name | Type | Description | Notes
 **metadata** | [**\Tripartie\SafeCheckout\Model\PersonaMetadataRead[]**](PersonaMetadataRead.md) | You can assign different meta to your Persona object for different purposes. eg. Ease searching. | [optional]
 **offerCount** | **int** | Issued Offers count owned by a given Persona | [optional] [readonly]
 **purchaseCount** | **int** |  | [optional] [readonly]
+**registered** | **bool** | Determine if the Persona have a Tripartie account | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

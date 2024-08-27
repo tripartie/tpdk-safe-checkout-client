@@ -13,8 +13,9 @@ Name | Type | Description | Notes
 **email** | **string** |  |
 **plainPassword** | **string** |  |
 **intlPhoneNumber** | **string** |  | [optional]
-**originCountry** | **string** | The originating country |
-**preferredLanguage** | **string** |  |
+**originCountry** | **string** | The nationality of the current user. | [optional]
+**homeCountry** | **string** | The originating country | [optional]
+**preferredLanguage** | **string** |  | [optional]
 **consentMailAds** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

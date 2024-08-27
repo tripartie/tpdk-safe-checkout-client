@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **firstName** | **string** |  |
 **lastName** | **string** |  |
 **gender** | **string** |  | [default to 'RATHER_NOT_SAY']
-**dateOfBirth** | **\DateTime** |  | [optional]
+**dateOfBirth** | **mixed** |  | [optional]
 **language** | **string** | That data is used for rendering the frontend application with given language. If not set, will be inferred. Custom codes can be issued for specific requirements. | [optional]
 **email** | **string** |  | [optional]
 **mobilePhoneNumber** | **string** |  | [optional]

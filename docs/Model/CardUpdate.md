@@ -1,0 +1,9 @@
+# # CardUpdate
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**metadata** | [**\Tripartie\SafeCheckout\Model\CardMetadataUpdate[]**](CardMetadataUpdate.md) |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

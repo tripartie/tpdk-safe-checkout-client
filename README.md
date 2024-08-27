@@ -55,21 +55,23 @@ $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAp
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new Tripartie\SafeCheckout\Api\BrandingApi(
+
+$apiInstance = new Tripartie\SafeCheckout\Api\AdminApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Organization identifier
-$organizationUpdate = new \Tripartie\SafeCheckout\Model\OrganizationUpdate(); // \Tripartie\SafeCheckout\Model\OrganizationUpdate | The updated Organization resource
+$userInvite = new \Tripartie\SafeCheckout\Model\UserInvite(); // \Tripartie\SafeCheckout\Model\UserInvite | The new User resource
 
 try {
-    $result = $apiInstance->apiOrganizationsIdPatch($id, $organizationUpdate);
+    $result = $apiInstance->apiInvitePost($userInvite);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BrandingApi->apiOrganizationsIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdminApi->apiInvitePost: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -80,17 +82,25 @@ All URIs are relative to *https://staging-api.tripartie.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AdminApi* | [**apiInvitePost**](docs/Api/AdminApi.md#apiinvitepost) | **POST** /invite | Organization invite
+*AdminApi* | [**apiOrganizationsGetCollection**](docs/Api/AdminApi.md#apiorganizationsgetcollection) | **GET** /organizations | Retrieves the collection of Organization resources.
+*AdminApi* | [**apiOrganizationsIdGet**](docs/Api/AdminApi.md#apiorganizationsidget) | **GET** /organizations/{id} | Retrieves a Organization resource.
+*AdminApi* | [**apiUsersGetCollection**](docs/Api/AdminApi.md#apiusersgetcollection) | **GET** /users | Retrieves the collection of User resources.
+*AdminApi* | [**apiUsersIdDelete**](docs/Api/AdminApi.md#apiusersiddelete) | **DELETE** /users/{id} | Removes the User resource.
+*AdminApi* | [**apiUsersIdGet**](docs/Api/AdminApi.md#apiusersidget) | **GET** /users/{id} | Retrieves a User resource.
+*AdminApi* | [**apiUsersIdPatch**](docs/Api/AdminApi.md#apiusersidpatch) | **PATCH** /users/{id} | Update your profile
+*AdminApi* | [**apiUsersIddisablePatch**](docs/Api/AdminApi.md#apiusersiddisablepatch) | **PATCH** /users/{id}/disable | Updates the User resource.
+*AdminApi* | [**apiUsersIdemailPatch**](docs/Api/AdminApi.md#apiusersidemailpatch) | **PATCH** /users/{id}/email | Update user email
+*AdminApi* | [**apiUsersIdemailValidationPatch**](docs/Api/AdminApi.md#apiusersidemailvalidationpatch) | **PATCH** /users/{id}/email-validation | Validate email ownership
+*AdminApi* | [**apiUsersIdenablePatch**](docs/Api/AdminApi.md#apiusersidenablepatch) | **PATCH** /users/{id}/enable | Updates the User resource.
+*AdminApi* | [**apiUsersIdpasswordPatch**](docs/Api/AdminApi.md#apiusersidpasswordpatch) | **PATCH** /users/{id}/password | Change your password
+*AdminApi* | [**apiUsersIdtotpSetupPatch**](docs/Api/AdminApi.md#apiusersidtotpsetuppatch) | **PATCH** /users/{id}/totp-setup | Setup an additional authentication factor
+*AdminApi* | [**apiUsersIdtotpTogglePatch**](docs/Api/AdminApi.md#apiusersidtotptogglepatch) | **PATCH** /users/{id}/totp-toggle | Disable the second authentication factor
 *BrandingApi* | [**apiOrganizationsIdPatch**](docs/Api/BrandingApi.md#apiorganizationsidpatch) | **PATCH** /organizations/{id} | Update your Organization details, branding or parameters
 *BrandingApi* | [**apiOrganizationsIdiconDelete**](docs/Api/BrandingApi.md#apiorganizationsidicondelete) | **DELETE** /organizations/{id}/icon | Unset your Organization Icon
 *BrandingApi* | [**apiOrganizationsIdiconPost**](docs/Api/BrandingApi.md#apiorganizationsidiconpost) | **POST** /organizations/{id}/icon | Upload your Organization Icon
 *BrandingApi* | [**apiOrganizationsIdlogoDelete**](docs/Api/BrandingApi.md#apiorganizationsidlogodelete) | **DELETE** /organizations/{id}/logo | Unset your Organization Logo
 *BrandingApi* | [**apiOrganizationsIdlogoPost**](docs/Api/BrandingApi.md#apiorganizationsidlogopost) | **POST** /organizations/{id}/logo | Upload your Organization logo
-*NotificationApi* | [**apiPersonasIdnotificationsGetCollection**](docs/Api/NotificationApi.md#apipersonasidnotificationsgetcollection) | **GET** /personas/{id}/notifications | Retrieve pending notifications for Persona
-*NotificationApi* | [**apiPersonasPersonaIdnotificationsIdPatch**](docs/Api/NotificationApi.md#apipersonaspersonaidnotificationsidpatch) | **PATCH** /personas/{personaId}/notifications/{id} | Mark as read/unread a notification for Persona
-*NotificationApi* | [**apiUsersIdnotificationsGetCollection**](docs/Api/NotificationApi.md#apiusersidnotificationsgetcollection) | **GET** /users/{id}/notifications | Retrieves the collection of Notification resources.
-*NotificationApi* | [**apiUsersUserIdnotificationsIdPatch**](docs/Api/NotificationApi.md#apiusersuseridnotificationsidpatch) | **PATCH** /users/{userId}/notifications/{id} | Mark as read/unread a notification for User
-*OrganizationApi* | [**apiOrganizationsGetCollection**](docs/Api/OrganizationApi.md#apiorganizationsgetcollection) | **GET** /organizations | Retrieves the collection of Organization resources.
-*OrganizationApi* | [**apiOrganizationsIdGet**](docs/Api/OrganizationApi.md#apiorganizationsidget) | **GET** /organizations/{id} | Retrieves a Organization resource.
 *PersonaApi* | [**apiPersonasGetCollection**](docs/Api/PersonaApi.md#apipersonasgetcollection) | **GET** /personas | Retrieves the collection of Persona resources.
 *PersonaApi* | [**apiPersonasIdDelete**](docs/Api/PersonaApi.md#apipersonasiddelete) | **DELETE** /personas/{id} | Unregister a Persona (Your customer)
 *PersonaApi* | [**apiPersonasIdGet**](docs/Api/PersonaApi.md#apipersonasidget) | **GET** /personas/{id} | Retrieves a Persona resource.
@@ -102,29 +112,44 @@ Class | Method | HTTP request | Description
 *SafeCheckoutApi* | [**apiOffersUlidPatch**](docs/Api/SafeCheckoutApi.md#apioffersulidpatch) | **PATCH** /offers/{ulid} | Update existing Offer
 *SafeCheckoutApi* | [**apiOffersUlidmediasIdDelete**](docs/Api/SafeCheckoutApi.md#apioffersulidmediasiddelete) | **DELETE** /offers/{ulid}/medias/{id} | Removes the Media resource.
 *SafeCheckoutApi* | [**apiOffersUlidmediasPost**](docs/Api/SafeCheckoutApi.md#apioffersulidmediaspost) | **POST** /offers/{ulid}/medias | Upload a picture for a given Offer
-*SafeCheckoutApi* | [**apiTransactionsUlidevaluationsPost**](docs/Api/SafeCheckoutApi.md#apitransactionsulidevaluationspost) | **POST** /transactions/{ulid}/evaluations | Submit an Evaluation for the Transaction
-*SafeCheckoutApi* | [**apiTransactionsUlidparcelsGetCollection**](docs/Api/SafeCheckoutApi.md#apitransactionsulidparcelsgetcollection) | **GET** /transactions/{ulid}/parcels | Retrieves the collection of Parcel resources.
-*SafeCheckoutApi* | [**apiTransactionsUlidparcelsIdDelete**](docs/Api/SafeCheckoutApi.md#apitransactionsulidparcelsiddelete) | **DELETE** /transactions/{ulid}/parcels/{id} | Removes the Parcel resource.
-*SafeCheckoutApi* | [**apiTransactionsUlidparcelsPost**](docs/Api/SafeCheckoutApi.md#apitransactionsulidparcelspost) | **POST** /transactions/{ulid}/parcels | Creates a Parcel resource.
+*TransactionApi* | [**apiQuotesIdGet**](docs/Api/TransactionApi.md#apiquotesidget) | **GET** /quotes/{id} | Retrieve a Quote
+*TransactionApi* | [**apiQuotesIdPatch**](docs/Api/TransactionApi.md#apiquotesidpatch) | **PATCH** /quotes/{id} | Update a Quote prior to issuing a Transaction
+*TransactionApi* | [**apiQuotesPost**](docs/Api/TransactionApi.md#apiquotespost) | **POST** /quotes | Create a Quote prior to issuing a Transaction
+*TransactionApi* | [**apiTransactionsGetCollection**](docs/Api/TransactionApi.md#apitransactionsgetcollection) | **GET** /transactions | List all Transaction
+*TransactionApi* | [**apiTransactionsPost**](docs/Api/TransactionApi.md#apitransactionspost) | **POST** /transactions | Initialize a new Transaction
+*TransactionApi* | [**apiTransactionsUlidGet**](docs/Api/TransactionApi.md#apitransactionsulidget) | **GET** /transactions/{ulid} | Get a Transaction
+*TransactionApi* | [**apiTransactionsUlidPatch**](docs/Api/TransactionApi.md#apitransactionsulidpatch) | **PATCH** /transactions/{ulid} | Interact with a Transaction
 *UserApi* | [**apiApiClientsGetCollection**](docs/Api/UserApi.md#apiapiclientsgetcollection) | **GET** /api-clients | Retrieves the collection of ApiClient resources.
 *UserApi* | [**apiApiClientsIdentifierDelete**](docs/Api/UserApi.md#apiapiclientsidentifierdelete) | **DELETE** /api-clients/{identifier} | Removes the ApiClient resource.
 *UserApi* | [**apiApiClientsIdentifierGet**](docs/Api/UserApi.md#apiapiclientsidentifierget) | **GET** /api-clients/{identifier} | Retrieves a ApiClient resource.
 *UserApi* | [**apiApiClientsPost**](docs/Api/UserApi.md#apiapiclientspost) | **POST** /api-clients | Creates a ApiClient resource.
-*UserApi* | [**apiInvitePost**](docs/Api/UserApi.md#apiinvitepost) | **POST** /invite | Organization invite
+*UserApi* | [**apiBankAccountsIdDelete**](docs/Api/UserApi.md#apibankaccountsiddelete) | **DELETE** /bank-accounts/{id} | Removes the BankAccount resource.
+*UserApi* | [**apiBankAccountsIdGet**](docs/Api/UserApi.md#apibankaccountsidget) | **GET** /bank-accounts/{id} | Retrieves a BankAccount resource.
+*UserApi* | [**apiBankAccountsPost**](docs/Api/UserApi.md#apibankaccountspost) | **POST** /bank-accounts | Creates a BankAccount resource.
+*UserApi* | [**apiCardsGetCollection**](docs/Api/UserApi.md#apicardsgetcollection) | **GET** /cards | Retrieves the collection of Card resources.
+*UserApi* | [**apiCardsIdDelete**](docs/Api/UserApi.md#apicardsiddelete) | **DELETE** /cards/{id} | Removes the Card resource.
+*UserApi* | [**apiCardsIdGet**](docs/Api/UserApi.md#apicardsidget) | **GET** /cards/{id} | Retrieves a Card resource.
+*UserApi* | [**apiCardsIdPatch**](docs/Api/UserApi.md#apicardsidpatch) | **PATCH** /cards/{id} | Updates the Card resource.
+*UserApi* | [**apiCardsPost**](docs/Api/UserApi.md#apicardspost) | **POST** /cards | Creates a Card resource.
+*UserApi* | [**apiCashOutsGetCollection**](docs/Api/UserApi.md#apicashoutsgetcollection) | **GET** /cash-outs | Retrieves the collection of CashOut resources.
+*UserApi* | [**apiCashOutsIdGet**](docs/Api/UserApi.md#apicashoutsidget) | **GET** /cash-outs/{id} | Retrieves a CashOut resource.
+*UserApi* | [**apiCashOutsPost**](docs/Api/UserApi.md#apicashoutspost) | **POST** /cash-outs | Creates a CashOut resource.
 *UserApi* | [**apiMeGet**](docs/Api/UserApi.md#apimeget) | **GET** /me | Retrieves a User resource.
+*UserApi* | [**apiProofOfIdentitiesGetCollection**](docs/Api/UserApi.md#apiproofofidentitiesgetcollection) | **GET** /proof-of-identities | List all submitted PoI
+*UserApi* | [**apiProofOfIdentitiesIdGet**](docs/Api/UserApi.md#apiproofofidentitiesidget) | **GET** /proof-of-identities/{id} | Retrieve a specific PoI
+*UserApi* | [**apiProofOfIdentitiesIdPatch**](docs/Api/UserApi.md#apiproofofidentitiesidpatch) | **PATCH** /proof-of-identities/{id} | Upload the document for your PoI slot
+*UserApi* | [**apiProofOfIdentitiesPost**](docs/Api/UserApi.md#apiproofofidentitiespost) | **POST** /proof-of-identities | Submit a slot for a PoI
 *UserApi* | [**apiRegisterPost**](docs/Api/UserApi.md#apiregisterpost) | **POST** /register | Customer onboarding
-*UserApi* | [**apiUsersGetCollection**](docs/Api/UserApi.md#apiusersgetcollection) | **GET** /users | Retrieves the collection of User resources.
 *UserApi* | [**apiUsersIdDelete**](docs/Api/UserApi.md#apiusersiddelete) | **DELETE** /users/{id} | Removes the User resource.
-*UserApi* | [**apiUsersIdGet**](docs/Api/UserApi.md#apiusersidget) | **GET** /users/{id} | Retrieves a User resource.
-*UserApi* | [**apiUsersIdPatch**](docs/Api/UserApi.md#apiusersidpatch) | **PATCH** /users/{id} | Updates the User resource.
+*UserApi* | [**apiUsersIdPatch**](docs/Api/UserApi.md#apiusersidpatch) | **PATCH** /users/{id} | Update your profile
 *UserApi* | [**apiUsersIdavatarDelete**](docs/Api/UserApi.md#apiusersidavatardelete) | **DELETE** /users/{id}/avatar | Unset your personal avatar
 *UserApi* | [**apiUsersIdavatarPost**](docs/Api/UserApi.md#apiusersidavatarpost) | **POST** /users/{id}/avatar | Upload your personal avatar
 *UserApi* | [**apiUsersIdemailPatch**](docs/Api/UserApi.md#apiusersidemailpatch) | **PATCH** /users/{id}/email | Update user email
 *UserApi* | [**apiUsersIdemailValidationPatch**](docs/Api/UserApi.md#apiusersidemailvalidationpatch) | **PATCH** /users/{id}/email-validation | Validate email ownership
-*UserApi* | [**apiUsersIdenablePatch**](docs/Api/UserApi.md#apiusersidenablepatch) | **PATCH** /users/{id}/enable | Updates the User resource.
-*UserApi* | [**apiUsersIdpasswordPatch**](docs/Api/UserApi.md#apiusersidpasswordpatch) | **PATCH** /users/{id}/password | Updates the User resource.
-*UserApi* | [**apiUsersIdtotpSetupPatch**](docs/Api/UserApi.md#apiusersidtotpsetuppatch) | **PATCH** /users/{id}/totp-setup | Updates the User resource.
-*UserApi* | [**apiUsersIdtotpTogglePatch**](docs/Api/UserApi.md#apiusersidtotptogglepatch) | **PATCH** /users/{id}/totp-toggle | Updates the User resource.
+*UserApi* | [**apiUsersIdoffersPost**](docs/Api/UserApi.md#apiusersidofferspost) | **POST** /users/{id}/offers | Create a public link for Offer
+*UserApi* | [**apiUsersIdpasswordPatch**](docs/Api/UserApi.md#apiusersidpasswordpatch) | **PATCH** /users/{id}/password | Change your password
+*UserApi* | [**apiUsersIdtotpSetupPatch**](docs/Api/UserApi.md#apiusersidtotpsetuppatch) | **PATCH** /users/{id}/totp-setup | Setup an additional authentication factor
+*UserApi* | [**apiUsersIdtotpTogglePatch**](docs/Api/UserApi.md#apiusersidtotptogglepatch) | **PATCH** /users/{id}/totp-toggle | Disable the second authentication factor
 *UserApi* | [**authenticationPost**](docs/Api/UserApi.md#authenticationpost) | **POST** /authentication | User authentication
 *WebhookApi* | [**apiWebhookHistoriesGetCollection**](docs/Api/WebhookApi.md#apiwebhookhistoriesgetcollection) | **GET** /webhook-histories | Retrieves the collection of WebhookHistory resources.
 *WebhookApi* | [**apiWebhookHistoriesIdGet**](docs/Api/WebhookApi.md#apiwebhookhistoriesidget) | **GET** /webhook-histories/{id} | Retrieves a WebhookHistory resource.
@@ -142,8 +167,15 @@ Class | Method | HTTP request | Description
 - [ApiClientWrite](docs/Model/ApiClientWrite.md)
 - [AuthError](docs/Model/AuthError.md)
 - [BankAccountUserRead](docs/Model/BankAccountUserRead.md)
-- [EvaluationRead](docs/Model/EvaluationRead.md)
-- [EvaluationWrite](docs/Model/EvaluationWrite.md)
+- [BankAccountWrite](docs/Model/BankAccountWrite.md)
+- [CardCollectionRead](docs/Model/CardCollectionRead.md)
+- [CardMetadataCollectionRead](docs/Model/CardMetadataCollectionRead.md)
+- [CardMetadataRead](docs/Model/CardMetadataRead.md)
+- [CardMetadataUpdate](docs/Model/CardMetadataUpdate.md)
+- [CardRead](docs/Model/CardRead.md)
+- [CardUpdate](docs/Model/CardUpdate.md)
+- [CardUserRead](docs/Model/CardUserRead.md)
+- [CashoutCashOutRead](docs/Model/CashoutCashOutRead.md)
 - [GenericError](docs/Model/GenericError.md)
 - [InvalidQueryError](docs/Model/InvalidQueryError.md)
 - [Media](docs/Model/Media.md)
@@ -152,8 +184,6 @@ Class | Method | HTTP request | Description
 - [MessageError](docs/Model/MessageError.md)
 - [Metadata](docs/Model/Metadata.md)
 - [NotFoundError](docs/Model/NotFoundError.md)
-- [NotificationRead](docs/Model/NotificationRead.md)
-- [NotificationUpdate](docs/Model/NotificationUpdate.md)
 - [OfferAddressIndependentWrite](docs/Model/OfferAddressIndependentWrite.md)
 - [OfferCollectionRead](docs/Model/OfferCollectionRead.md)
 - [OfferIndependentWrite](docs/Model/OfferIndependentWrite.md)
@@ -162,9 +192,11 @@ Class | Method | HTTP request | Description
 - [OfferMetadataUpdate](docs/Model/OfferMetadataUpdate.md)
 - [OfferOrganizationRead](docs/Model/OfferOrganizationRead.md)
 - [OfferPersonaIndependentWrite](docs/Model/OfferPersonaIndependentWrite.md)
+- [OfferPersonaRead](docs/Model/OfferPersonaRead.md)
 - [OfferPostCreationRead](docs/Model/OfferPostCreationRead.md)
 - [OfferRead](docs/Model/OfferRead.md)
 - [OfferUpdate](docs/Model/OfferUpdate.md)
+- [OfferWrite](docs/Model/OfferWrite.md)
 - [OrganizationAddressUpdate](docs/Model/OrganizationAddressUpdate.md)
 - [OrganizationCollectionRead](docs/Model/OrganizationCollectionRead.md)
 - [OrganizationMediaCollectionRead](docs/Model/OrganizationMediaCollectionRead.md)
@@ -172,8 +204,6 @@ Class | Method | HTTP request | Description
 - [OrganizationRead](docs/Model/OrganizationRead.md)
 - [OrganizationUpdate](docs/Model/OrganizationUpdate.md)
 - [OrganizationUserRead](docs/Model/OrganizationUserRead.md)
-- [Parcel](docs/Model/Parcel.md)
-- [ParcelWrite](docs/Model/ParcelWrite.md)
 - [Persona](docs/Model/Persona.md)
 - [PersonaAddressRead](docs/Model/PersonaAddressRead.md)
 - [PersonaAddressUpdate](docs/Model/PersonaAddressUpdate.md)
@@ -186,11 +216,29 @@ Class | Method | HTTP request | Description
 - [PersonaUpdate](docs/Model/PersonaUpdate.md)
 - [PersonaUserRead](docs/Model/PersonaUserRead.md)
 - [PersonaWrite](docs/Model/PersonaWrite.md)
+- [ProofOfIdentityCollectionRead](docs/Model/ProofOfIdentityCollectionRead.md)
+- [ProofOfIdentityRead](docs/Model/ProofOfIdentityRead.md)
+- [QuoteRead](docs/Model/QuoteRead.md)
+- [QuoteUpdate](docs/Model/QuoteUpdate.md)
+- [QuoteWrite](docs/Model/QuoteWrite.md)
 - [RateLimitError](docs/Model/RateLimitError.md)
+- [TransactionCollectionRead](docs/Model/TransactionCollectionRead.md)
+- [TransactionMetadataRead](docs/Model/TransactionMetadataRead.md)
+- [TransactionOfferCollectionRead](docs/Model/TransactionOfferCollectionRead.md)
+- [TransactionOfferRead](docs/Model/TransactionOfferRead.md)
+- [TransactionParcelRead](docs/Model/TransactionParcelRead.md)
+- [TransactionPersonaCollectionRead](docs/Model/TransactionPersonaCollectionRead.md)
+- [TransactionPersonaRead](docs/Model/TransactionPersonaRead.md)
+- [TransactionQuoteCollectionRead](docs/Model/TransactionQuoteCollectionRead.md)
+- [TransactionQuoteRead](docs/Model/TransactionQuoteRead.md)
+- [TransactionRead](docs/Model/TransactionRead.md)
+- [TransactionUpdate](docs/Model/TransactionUpdate.md)
+- [TransactionWrite](docs/Model/TransactionWrite.md)
 - [UnprocessableEntity](docs/Model/UnprocessableEntity.md)
 - [UnprocessableEntityViolationsInner](docs/Model/UnprocessableEntityViolationsInner.md)
 - [UserAuthenticatedRead](docs/Model/UserAuthenticatedRead.md)
 - [UserBankAccountAuthenticatedRead](docs/Model/UserBankAccountAuthenticatedRead.md)
+- [UserCardAuthenticatedRead](docs/Model/UserCardAuthenticatedRead.md)
 - [UserCollectionRead](docs/Model/UserCollectionRead.md)
 - [UserEmailValidationWrite](docs/Model/UserEmailValidationWrite.md)
 - [UserInvite](docs/Model/UserInvite.md)
@@ -218,7 +266,6 @@ Class | Method | HTTP request | Description
 - [UserWalletCollectionRead](docs/Model/UserWalletCollectionRead.md)
 - [UserWalletSupportRead](docs/Model/UserWalletSupportRead.md)
 - [UserWrite](docs/Model/UserWrite.md)
-- [View](docs/Model/View.md)
 - [WalletUserRead](docs/Model/WalletUserRead.md)
 - [Webhook](docs/Model/Webhook.md)
 - [WebhookHistoryCollectionRead](docs/Model/WebhookHistoryCollectionRead.md)
@@ -250,13 +297,6 @@ Authentication schemes defined for the API:
 - **Location**: HTTP header
 
 
-### personaAuthKey
-
-- **Type**: API key
-- **API key parameter name**: X-Persona-Authorization
-- **Location**: HTTP header
-
-
 ## Tests
 
 To run the tests, use:
@@ -274,6 +314,6 @@ noc@tripartie.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.12`
-    - Generator version: `7.6.0`
+- API version: `2.0.22`
+    - Generator version: `7.8.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

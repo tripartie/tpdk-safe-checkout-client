@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**mainAddress** | **object** |  | [optional]
 **firstName** | **string** |  | [optional]
 **lastName** | **string** |  | [optional]
 **publicName** | **string** |  | [optional]

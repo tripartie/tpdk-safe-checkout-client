@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] [readonly]
 **persona** | **string** |  | [optional]
 **offer** | **string** |  | [optional]
+**card** | **string** |  | [optional]
 **key** | **string** |  | [optional]
 **value** | **string** |  | [optional]
 

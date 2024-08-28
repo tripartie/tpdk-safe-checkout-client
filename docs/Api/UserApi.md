@@ -4,22 +4,24 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiApiClientsGetCollection()**](UserApi.md#apiApiClientsGetCollection) | **GET** /api-clients | Retrieves the collection of ApiClient resources. |
-| [**apiApiClientsIdentifierDelete()**](UserApi.md#apiApiClientsIdentifierDelete) | **DELETE** /api-clients/{identifier} | Removes the ApiClient resource. |
-| [**apiApiClientsIdentifierGet()**](UserApi.md#apiApiClientsIdentifierGet) | **GET** /api-clients/{identifier} | Retrieves a ApiClient resource. |
-| [**apiApiClientsPost()**](UserApi.md#apiApiClientsPost) | **POST** /api-clients | Creates a ApiClient resource. |
 | [**apiBankAccountsIdDelete()**](UserApi.md#apiBankAccountsIdDelete) | **DELETE** /bank-accounts/{id} | Removes the BankAccount resource. |
 | [**apiBankAccountsIdGet()**](UserApi.md#apiBankAccountsIdGet) | **GET** /bank-accounts/{id} | Retrieves a BankAccount resource. |
 | [**apiBankAccountsPost()**](UserApi.md#apiBankAccountsPost) | **POST** /bank-accounts | Creates a BankAccount resource. |
 | [**apiCardsGetCollection()**](UserApi.md#apiCardsGetCollection) | **GET** /cards | Retrieves the collection of Card resources. |
 | [**apiCardsIdDelete()**](UserApi.md#apiCardsIdDelete) | **DELETE** /cards/{id} | Removes the Card resource. |
 | [**apiCardsIdGet()**](UserApi.md#apiCardsIdGet) | **GET** /cards/{id} | Retrieves a Card resource. |
-| [**apiCardsIdPatch()**](UserApi.md#apiCardsIdPatch) | **PATCH** /cards/{id} | Updates the Card resource. |
+| [**apiCardsIdPatch()**](UserApi.md#apiCardsIdPatch) | **PATCH** /cards/{id} | Push back the tokenization output from the external provider |
 | [**apiCardsPost()**](UserApi.md#apiCardsPost) | **POST** /cards | Creates a Card resource. |
 | [**apiCashOutsGetCollection()**](UserApi.md#apiCashOutsGetCollection) | **GET** /cash-outs | Retrieves the collection of CashOut resources. |
 | [**apiCashOutsIdGet()**](UserApi.md#apiCashOutsIdGet) | **GET** /cash-outs/{id} | Retrieves a CashOut resource. |
-| [**apiCashOutsPost()**](UserApi.md#apiCashOutsPost) | **POST** /cash-outs | Creates a CashOut resource. |
+| [**apiCashOutsPost()**](UserApi.md#apiCashOutsPost) | **POST** /cash-outs | Withdraw the full amount available in the user wallet to set bank account |
 | [**apiMeGet()**](UserApi.md#apiMeGet) | **GET** /me | Retrieves a User resource. |
+| [**apiOffersGetCollection()**](UserApi.md#apiOffersGetCollection) | **GET** /offers | Search amongst Offers |
+| [**apiOffersUlidDelete()**](UserApi.md#apiOffersUlidDelete) | **DELETE** /offers/{ulid} | Disable existing Offer |
+| [**apiOffersUlidGet()**](UserApi.md#apiOffersUlidGet) | **GET** /offers/{ulid} | Fetch a Offer details |
+| [**apiOffersUlidPatch()**](UserApi.md#apiOffersUlidPatch) | **PATCH** /offers/{ulid} | Update existing Offer |
+| [**apiOffersUlidmediasIdDelete()**](UserApi.md#apiOffersUlidmediasIdDelete) | **DELETE** /offers/{ulid}/medias/{id} | Removes the Media resource. |
+| [**apiOffersUlidmediasPost()**](UserApi.md#apiOffersUlidmediasPost) | **POST** /offers/{ulid}/medias | Upload a picture for a given Offer |
 | [**apiProofOfIdentitiesGetCollection()**](UserApi.md#apiProofOfIdentitiesGetCollection) | **GET** /proof-of-identities | List all submitted PoI |
 | [**apiProofOfIdentitiesIdGet()**](UserApi.md#apiProofOfIdentitiesIdGet) | **GET** /proof-of-identities/{id} | Retrieve a specific PoI |
 | [**apiProofOfIdentitiesIdPatch()**](UserApi.md#apiProofOfIdentitiesIdPatch) | **PATCH** /proof-of-identities/{id} | Upload the document for your PoI slot |
@@ -37,253 +39,6 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 | [**apiUsersIdtotpTogglePatch()**](UserApi.md#apiUsersIdtotpTogglePatch) | **PATCH** /users/{id}/totp-toggle | Disable the second authentication factor |
 | [**authenticationPost()**](UserApi.md#authenticationPost) | **POST** /authentication | User authentication |
 
-
-## `apiApiClientsGetCollection()`
-
-```php
-apiApiClientsGetCollection($page): \Tripartie\SafeCheckout\Model\ApiClientRead[]
-```
-
-Retrieves the collection of ApiClient resources.
-
-Retrieves the collection of ApiClient resources.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: jwtPersonalKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$page = 1; // int | The collection page number
-
-try {
-    $result = $apiInstance->apiApiClientsGetCollection($page);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->apiApiClientsGetCollection: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| The collection page number | [optional] [default to 1] |
-
-### Return type
-
-[**\Tripartie\SafeCheckout\Model\ApiClientRead[]**](../Model/ApiClientRead.md)
-
-### Authorization
-
-[jwtPersonalKey](../../README.md#jwtPersonalKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiApiClientsIdentifierDelete()`
-
-```php
-apiApiClientsIdentifierDelete($identifier)
-```
-
-Removes the ApiClient resource.
-
-Removes the ApiClient resource.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: jwtPersonalKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$identifier = 'identifier_example'; // string | ApiClient identifier
-
-try {
-    $apiInstance->apiApiClientsIdentifierDelete($identifier);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->apiApiClientsIdentifierDelete: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **identifier** | **string**| ApiClient identifier | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[jwtPersonalKey](../../README.md#jwtPersonalKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiApiClientsIdentifierGet()`
-
-```php
-apiApiClientsIdentifierGet($identifier): \Tripartie\SafeCheckout\Model\ApiClientRead
-```
-
-Retrieves a ApiClient resource.
-
-Retrieves a ApiClient resource.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: jwtPersonalKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$identifier = 'identifier_example'; // string | ApiClient identifier
-
-try {
-    $result = $apiInstance->apiApiClientsIdentifierGet($identifier);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->apiApiClientsIdentifierGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **identifier** | **string**| ApiClient identifier | |
-
-### Return type
-
-[**\Tripartie\SafeCheckout\Model\ApiClientRead**](../Model/ApiClientRead.md)
-
-### Authorization
-
-[jwtPersonalKey](../../README.md#jwtPersonalKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiApiClientsPost()`
-
-```php
-apiApiClientsPost($apiClientWrite): \Tripartie\SafeCheckout\Model\ApiClientPostCreationRead
-```
-
-Creates a ApiClient resource.
-
-Creates a ApiClient resource.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: jwtPersonalKey
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$apiClientWrite = new \Tripartie\SafeCheckout\Model\ApiClientWrite(); // \Tripartie\SafeCheckout\Model\ApiClientWrite | The new ApiClient resource
-
-try {
-    $result = $apiInstance->apiApiClientsPost($apiClientWrite);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->apiApiClientsPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **apiClientWrite** | [**\Tripartie\SafeCheckout\Model\ApiClientWrite**](../Model/ApiClientWrite.md)| The new ApiClient resource | |
-
-### Return type
-
-[**\Tripartie\SafeCheckout\Model\ApiClientPostCreationRead**](../Model/ApiClientPostCreationRead.md)
-
-### Authorization
-
-[jwtPersonalKey](../../README.md#jwtPersonalKey)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `apiBankAccountsIdDelete()`
 
@@ -349,7 +104,7 @@ void (empty response body)
 ## `apiBankAccountsIdGet()`
 
 ```php
-apiBankAccountsIdGet($id): object
+apiBankAccountsIdGet($id): \Tripartie\SafeCheckout\Model\BankAccountRead
 ```
 
 Retrieves a BankAccount resource.
@@ -393,7 +148,7 @@ try {
 
 ### Return type
 
-**object**
+[**\Tripartie\SafeCheckout\Model\BankAccountRead**](../Model/BankAccountRead.md)
 
 ### Authorization
 
@@ -411,7 +166,7 @@ try {
 ## `apiBankAccountsPost()`
 
 ```php
-apiBankAccountsPost($bankAccountWrite): object
+apiBankAccountsPost($bankAccountWrite): \Tripartie\SafeCheckout\Model\BankAccountRead
 ```
 
 Creates a BankAccount resource.
@@ -455,7 +210,7 @@ try {
 
 ### Return type
 
-**object**
+[**\Tripartie\SafeCheckout\Model\BankAccountRead**](../Model/BankAccountRead.md)
 
 ### Authorization
 
@@ -661,7 +416,7 @@ try {
 apiCardsIdPatch($id, $cardUpdate): \Tripartie\SafeCheckout\Model\CardRead
 ```
 
-Updates the Card resource.
+Push back the tokenization output from the external provider
 
 Updates the Card resource.
 
@@ -722,7 +477,7 @@ try {
 ## `apiCardsPost()`
 
 ```php
-apiCardsPost($body): \Tripartie\SafeCheckout\Model\CardRead
+apiCardsPost($cardWrite): \Tripartie\SafeCheckout\Model\CardRead
 ```
 
 Creates a Card resource.
@@ -748,10 +503,10 @@ $apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array('key' => new \stdClass); // object | The new Card resource
+$cardWrite = new \Tripartie\SafeCheckout\Model\CardWrite(); // \Tripartie\SafeCheckout\Model\CardWrite | The new Card resource
 
 try {
-    $result = $apiInstance->apiCardsPost($body);
+    $result = $apiInstance->apiCardsPost($cardWrite);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->apiCardsPost: ', $e->getMessage(), PHP_EOL;
@@ -762,7 +517,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body** | **object**| The new Card resource | |
+| **cardWrite** | [**\Tripartie\SafeCheckout\Model\CardWrite**](../Model/CardWrite.md)| The new Card resource | |
 
 ### Return type
 
@@ -784,7 +539,7 @@ try {
 ## `apiCashOutsGetCollection()`
 
 ```php
-apiCashOutsGetCollection($page): object[]
+apiCashOutsGetCollection($page): \Tripartie\SafeCheckout\Model\CashoutCashOutCollectionRead[]
 ```
 
 Retrieves the collection of CashOut resources.
@@ -828,7 +583,7 @@ try {
 
 ### Return type
 
-**object[]**
+[**\Tripartie\SafeCheckout\Model\CashoutCashOutCollectionRead[]**](../Model/CashoutCashOutCollectionRead.md)
 
 ### Authorization
 
@@ -908,10 +663,10 @@ try {
 ## `apiCashOutsPost()`
 
 ```php
-apiCashOutsPost($body): \Tripartie\SafeCheckout\Model\CashoutCashOutRead
+apiCashOutsPost($cashoutCashOutWrite): \Tripartie\SafeCheckout\Model\CashoutCashOutRead
 ```
 
-Creates a CashOut resource.
+Withdraw the full amount available in the user wallet to set bank account
 
 Creates a CashOut resource.
 
@@ -934,10 +689,10 @@ $apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array('key' => new \stdClass); // object | The new CashOut resource
+$cashoutCashOutWrite = new \Tripartie\SafeCheckout\Model\CashoutCashOutWrite(); // \Tripartie\SafeCheckout\Model\CashoutCashOutWrite | The new CashOut resource
 
 try {
-    $result = $apiInstance->apiCashOutsPost($body);
+    $result = $apiInstance->apiCashOutsPost($cashoutCashOutWrite);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->apiCashOutsPost: ', $e->getMessage(), PHP_EOL;
@@ -948,7 +703,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body** | **object**| The new CashOut resource | |
+| **cashoutCashOutWrite** | [**\Tripartie\SafeCheckout\Model\CashoutCashOutWrite**](../Model/CashoutCashOutWrite.md)| The new CashOut resource | |
 
 ### Return type
 
@@ -1023,6 +778,431 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `apiOffersGetCollection()`
+
+```php
+apiOffersGetCollection($page, $title, $publicUrl, $publicUrl2, $unitPrice, $unitPrice2, $itemCount, $itemCount2, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $metadata, $offerMetadata, $sellerMetadata, $nature, $condition, $status, $shippingAllowed): \Tripartie\SafeCheckout\Model\OfferCollectionRead[]
+```
+
+Search amongst Offers
+
+Retrieves the collection of Offer resources.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$page = 1; // int | The collection page number
+$title = 'title_example'; // string | 
+$publicUrl = 'publicUrl_example'; // string | 
+$publicUrl2 = array('publicUrl_example'); // string[] | 
+$unitPrice = 'unitPrice_example'; // string | 
+$unitPrice2 = array('unitPrice_example'); // string[] | 
+$itemCount = 56; // int | 
+$itemCount2 = array(56); // int[] | 
+$createdAtBefore = 'createdAtBefore_example'; // string | 
+$createdAtStrictlyBefore = 'createdAtStrictlyBefore_example'; // string | 
+$createdAtAfter = 'createdAtAfter_example'; // string | 
+$createdAtStrictlyAfter = 'createdAtStrictlyAfter_example'; // string | 
+$metadata = ["External-ID","1254A"]; // string[] | Flattened OrderedMap for metadata. Must be a multiple of two items count. Explicitly set \"null\" for desired value.
+$offerMetadata = ["External-ID","1254A"]; // string[] | Flattened OrderedMap for offer.metadata. Must be a multiple of two items count. Explicitly set \"null\" for desired value.
+$sellerMetadata = ["External-ID","1254A"]; // string[] | Flattened OrderedMap for seller.metadata. Must be a multiple of two items count. Explicitly set \"null\" for desired value.
+$nature = service; // string | Filter on a limited subset of nature
+$condition = NEW; // string | Filter on a limited subset of condition
+$status = issued; // string | Filter on a limited subset of status
+$shippingAllowed = True; // bool | 
+
+try {
+    $result = $apiInstance->apiOffersGetCollection($page, $title, $publicUrl, $publicUrl2, $unitPrice, $unitPrice2, $itemCount, $itemCount2, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $metadata, $offerMetadata, $sellerMetadata, $nature, $condition, $status, $shippingAllowed);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->apiOffersGetCollection: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **page** | **int**| The collection page number | [optional] [default to 1] |
+| **title** | **string**|  | [optional] |
+| **publicUrl** | **string**|  | [optional] |
+| **publicUrl2** | [**string[]**](../Model/string.md)|  | [optional] |
+| **unitPrice** | **string**|  | [optional] |
+| **unitPrice2** | [**string[]**](../Model/string.md)|  | [optional] |
+| **itemCount** | **int**|  | [optional] |
+| **itemCount2** | [**int[]**](../Model/int.md)|  | [optional] |
+| **createdAtBefore** | **string**|  | [optional] |
+| **createdAtStrictlyBefore** | **string**|  | [optional] |
+| **createdAtAfter** | **string**|  | [optional] |
+| **createdAtStrictlyAfter** | **string**|  | [optional] |
+| **metadata** | [**string[]**](../Model/string.md)| Flattened OrderedMap for metadata. Must be a multiple of two items count. Explicitly set \&quot;null\&quot; for desired value. | [optional] |
+| **offerMetadata** | [**string[]**](../Model/string.md)| Flattened OrderedMap for offer.metadata. Must be a multiple of two items count. Explicitly set \&quot;null\&quot; for desired value. | [optional] |
+| **sellerMetadata** | [**string[]**](../Model/string.md)| Flattened OrderedMap for seller.metadata. Must be a multiple of two items count. Explicitly set \&quot;null\&quot; for desired value. | [optional] |
+| **nature** | **string**| Filter on a limited subset of nature | [optional] |
+| **condition** | **string**| Filter on a limited subset of condition | [optional] |
+| **status** | **string**| Filter on a limited subset of status | [optional] |
+| **shippingAllowed** | **bool**|  | [optional] |
+
+### Return type
+
+[**\Tripartie\SafeCheckout\Model\OfferCollectionRead[]**](../Model/OfferCollectionRead.md)
+
+### Authorization
+
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `apiOffersUlidDelete()`
+
+```php
+apiOffersUlidDelete($ulid)
+```
+
+Disable existing Offer
+
+Make a specific Offer as non longer active
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ulid = 'ulid_example'; // string | Offer identifier
+
+try {
+    $apiInstance->apiOffersUlidDelete($ulid);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->apiOffersUlidDelete: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ulid** | **string**| Offer identifier | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `apiOffersUlidGet()`
+
+```php
+apiOffersUlidGet($ulid): \Tripartie\SafeCheckout\Model\OfferRead
+```
+
+Fetch a Offer details
+
+Retrieves a Offer resource.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ulid = 'ulid_example'; // string | Offer identifier
+
+try {
+    $result = $apiInstance->apiOffersUlidGet($ulid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->apiOffersUlidGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ulid** | **string**| Offer identifier | |
+
+### Return type
+
+[**\Tripartie\SafeCheckout\Model\OfferRead**](../Model/OfferRead.md)
+
+### Authorization
+
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `apiOffersUlidPatch()`
+
+```php
+apiOffersUlidPatch($ulid, $offerUpdate): \Tripartie\SafeCheckout\Model\OfferPostCreationRead
+```
+
+Update existing Offer
+
+Update your existing Offer and reuse existing generated link
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ulid = 'ulid_example'; // string | Offer identifier
+$offerUpdate = new \Tripartie\SafeCheckout\Model\OfferUpdate(); // \Tripartie\SafeCheckout\Model\OfferUpdate | The updated Offer resource
+
+try {
+    $result = $apiInstance->apiOffersUlidPatch($ulid, $offerUpdate);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->apiOffersUlidPatch: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ulid** | **string**| Offer identifier | |
+| **offerUpdate** | [**\Tripartie\SafeCheckout\Model\OfferUpdate**](../Model/OfferUpdate.md)| The updated Offer resource | |
+
+### Return type
+
+[**\Tripartie\SafeCheckout\Model\OfferPostCreationRead**](../Model/OfferPostCreationRead.md)
+
+### Authorization
+
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `apiOffersUlidmediasIdDelete()`
+
+```php
+apiOffersUlidmediasIdDelete($ulid, $id)
+```
+
+Removes the Media resource.
+
+Removes the Media resource.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ulid = 'ulid_example'; // string | 
+$id = 56; // int | 
+
+try {
+    $apiInstance->apiOffersUlidmediasIdDelete($ulid, $id);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->apiOffersUlidmediasIdDelete: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ulid** | **string**|  | |
+| **id** | **int**|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `apiOffersUlidmediasPost()`
+
+```php
+apiOffersUlidmediasPost($ulid, $file): \Tripartie\SafeCheckout\Model\MediaRead
+```
+
+Upload a picture for a given Offer
+
+Creates a Media resource.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ulid = 'ulid_example'; // string | 
+$file = "/path/to/file.txt"; // \SplFileObject
+
+try {
+    $result = $apiInstance->apiOffersUlidmediasPost($ulid, $file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->apiOffersUlidmediasPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ulid** | **string**|  | |
+| **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
+
+### Return type
+
+[**\Tripartie\SafeCheckout\Model\MediaRead**](../Model/MediaRead.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1220,7 +1400,7 @@ try {
 ## `apiProofOfIdentitiesPost()`
 
 ```php
-apiProofOfIdentitiesPost($body): \Tripartie\SafeCheckout\Model\ProofOfIdentityRead
+apiProofOfIdentitiesPost($proofOfIdentityWrite): \Tripartie\SafeCheckout\Model\ProofOfIdentityRead
 ```
 
 Submit a slot for a PoI
@@ -1246,10 +1426,10 @@ $apiInstance = new Tripartie\SafeCheckout\Api\UserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array('key' => new \stdClass); // object | The new ProofOfIdentity resource
+$proofOfIdentityWrite = new \Tripartie\SafeCheckout\Model\ProofOfIdentityWrite(); // \Tripartie\SafeCheckout\Model\ProofOfIdentityWrite | The new ProofOfIdentity resource
 
 try {
-    $result = $apiInstance->apiProofOfIdentitiesPost($body);
+    $result = $apiInstance->apiProofOfIdentitiesPost($proofOfIdentityWrite);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->apiProofOfIdentitiesPost: ', $e->getMessage(), PHP_EOL;
@@ -1260,7 +1440,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body** | **object**| The new ProofOfIdentity resource | |
+| **proofOfIdentityWrite** | [**\Tripartie\SafeCheckout\Model\ProofOfIdentityWrite**](../Model/ProofOfIdentityWrite.md)| The new ProofOfIdentity resource | |
 
 ### Return type
 

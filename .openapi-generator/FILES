@@ -16,6 +16,7 @@ docs/Model/ApiClientPostCreationRead.md
 docs/Model/ApiClientRead.md
 docs/Model/ApiClientWrite.md
 docs/Model/AuthError.md
+docs/Model/BankAccountRead.md
 docs/Model/BankAccountUserRead.md
 docs/Model/BankAccountWrite.md
 docs/Model/CardCollectionRead.md
@@ -25,7 +26,10 @@ docs/Model/CardMetadataUpdate.md
 docs/Model/CardRead.md
 docs/Model/CardUpdate.md
 docs/Model/CardUserRead.md
+docs/Model/CardWrite.md
+docs/Model/CashoutCashOutCollectionRead.md
 docs/Model/CashoutCashOutRead.md
+docs/Model/CashoutCashOutWrite.md
 docs/Model/GenericError.md
 docs/Model/InvalidQueryError.md
 docs/Model/Media.md
@@ -34,6 +38,7 @@ docs/Model/MediaUserRead.md
 docs/Model/MessageError.md
 docs/Model/Metadata.md
 docs/Model/NotFoundError.md
+docs/Model/Offer.md
 docs/Model/OfferAddressIndependentWrite.md
 docs/Model/OfferCollectionRead.md
 docs/Model/OfferIndependentWrite.md
@@ -68,10 +73,12 @@ docs/Model/PersonaUserRead.md
 docs/Model/PersonaWrite.md
 docs/Model/ProofOfIdentityCollectionRead.md
 docs/Model/ProofOfIdentityRead.md
+docs/Model/ProofOfIdentityWrite.md
 docs/Model/QuoteRead.md
 docs/Model/QuoteUpdate.md
 docs/Model/QuoteWrite.md
 docs/Model/RateLimitError.md
+docs/Model/TransactionCardRead.md
 docs/Model/TransactionCollectionRead.md
 docs/Model/TransactionMetadataRead.md
 docs/Model/TransactionOfferCollectionRead.md
@@ -83,6 +90,7 @@ docs/Model/TransactionQuoteCollectionRead.md
 docs/Model/TransactionQuoteRead.md
 docs/Model/TransactionRead.md
 docs/Model/TransactionUpdate.md
+docs/Model/TransactionWalletRead.md
 docs/Model/TransactionWrite.md
 docs/Model/UnprocessableEntity.md
 docs/Model/UnprocessableEntityViolationsInner.md
@@ -116,6 +124,7 @@ docs/Model/UserWalletAuthenticatedRead.md
 docs/Model/UserWalletCollectionRead.md
 docs/Model/UserWalletSupportRead.md
 docs/Model/UserWrite.md
+docs/Model/View.md
 docs/Model/WalletUserRead.md
 docs/Model/Webhook.md
 docs/Model/WebhookHistoryCollectionRead.md
@@ -140,6 +149,7 @@ lib/Model/ApiClientPostCreationRead.php
 lib/Model/ApiClientRead.php
 lib/Model/ApiClientWrite.php
 lib/Model/AuthError.php
+lib/Model/BankAccountRead.php
 lib/Model/BankAccountUserRead.php
 lib/Model/BankAccountWrite.php
 lib/Model/CardCollectionRead.php
@@ -149,7 +159,10 @@ lib/Model/CardMetadataUpdate.php
 lib/Model/CardRead.php
 lib/Model/CardUpdate.php
 lib/Model/CardUserRead.php
+lib/Model/CardWrite.php
+lib/Model/CashoutCashOutCollectionRead.php
 lib/Model/CashoutCashOutRead.php
+lib/Model/CashoutCashOutWrite.php
 lib/Model/GenericError.php
 lib/Model/InvalidQueryError.php
 lib/Model/Media.php
@@ -159,6 +172,7 @@ lib/Model/MessageError.php
 lib/Model/Metadata.php
 lib/Model/ModelInterface.php
 lib/Model/NotFoundError.php
+lib/Model/Offer.php
 lib/Model/OfferAddressIndependentWrite.php
 lib/Model/OfferCollectionRead.php
 lib/Model/OfferIndependentWrite.php
@@ -193,10 +207,12 @@ lib/Model/PersonaUserRead.php
 lib/Model/PersonaWrite.php
 lib/Model/ProofOfIdentityCollectionRead.php
 lib/Model/ProofOfIdentityRead.php
+lib/Model/ProofOfIdentityWrite.php
 lib/Model/QuoteRead.php
 lib/Model/QuoteUpdate.php
 lib/Model/QuoteWrite.php
 lib/Model/RateLimitError.php
+lib/Model/TransactionCardRead.php
 lib/Model/TransactionCollectionRead.php
 lib/Model/TransactionMetadataRead.php
 lib/Model/TransactionOfferCollectionRead.php
@@ -208,6 +224,7 @@ lib/Model/TransactionQuoteCollectionRead.php
 lib/Model/TransactionQuoteRead.php
 lib/Model/TransactionRead.php
 lib/Model/TransactionUpdate.php
+lib/Model/TransactionWalletRead.php
 lib/Model/TransactionWrite.php
 lib/Model/UnprocessableEntity.php
 lib/Model/UnprocessableEntityViolationsInner.php
@@ -241,6 +258,7 @@ lib/Model/UserWalletAuthenticatedRead.php
 lib/Model/UserWalletCollectionRead.php
 lib/Model/UserWalletSupportRead.php
 lib/Model/UserWrite.php
+lib/Model/View.php
 lib/Model/WalletUserRead.php
 lib/Model/Webhook.php
 lib/Model/WebhookHistoryCollectionRead.php
@@ -263,6 +281,7 @@ test/Model/ApiClientPostCreationReadTest.php
 test/Model/ApiClientReadTest.php
 test/Model/ApiClientWriteTest.php
 test/Model/AuthErrorTest.php
+test/Model/BankAccountReadTest.php
 test/Model/BankAccountUserReadTest.php
 test/Model/BankAccountWriteTest.php
 test/Model/CardCollectionReadTest.php
@@ -272,7 +291,10 @@ test/Model/CardMetadataUpdateTest.php
 test/Model/CardReadTest.php
 test/Model/CardUpdateTest.php
 test/Model/CardUserReadTest.php
+test/Model/CardWriteTest.php
+test/Model/CashoutCashOutCollectionReadTest.php
 test/Model/CashoutCashOutReadTest.php
+test/Model/CashoutCashOutWriteTest.php
 test/Model/GenericErrorTest.php
 test/Model/InvalidQueryErrorTest.php
 test/Model/MediaReadTest.php
@@ -292,6 +314,7 @@ test/Model/OfferPersonaIndependentWriteTest.php
 test/Model/OfferPersonaReadTest.php
 test/Model/OfferPostCreationReadTest.php
 test/Model/OfferReadTest.php
+test/Model/OfferTest.php
 test/Model/OfferUpdateTest.php
 test/Model/OfferWriteTest.php
 test/Model/OrganizationAddressUpdateTest.php
@@ -315,10 +338,12 @@ test/Model/PersonaUserReadTest.php
 test/Model/PersonaWriteTest.php
 test/Model/ProofOfIdentityCollectionReadTest.php
 test/Model/ProofOfIdentityReadTest.php
+test/Model/ProofOfIdentityWriteTest.php
 test/Model/QuoteReadTest.php
 test/Model/QuoteUpdateTest.php
 test/Model/QuoteWriteTest.php
 test/Model/RateLimitErrorTest.php
+test/Model/TransactionCardReadTest.php
 test/Model/TransactionCollectionReadTest.php
 test/Model/TransactionMetadataReadTest.php
 test/Model/TransactionOfferCollectionReadTest.php
@@ -330,6 +355,7 @@ test/Model/TransactionQuoteCollectionReadTest.php
 test/Model/TransactionQuoteReadTest.php
 test/Model/TransactionReadTest.php
 test/Model/TransactionUpdateTest.php
+test/Model/TransactionWalletReadTest.php
 test/Model/TransactionWriteTest.php
 test/Model/UnprocessableEntityTest.php
 test/Model/UnprocessableEntityViolationsInnerTest.php
@@ -363,6 +389,7 @@ test/Model/UserWalletAuthenticatedReadTest.php
 test/Model/UserWalletCollectionReadTest.php
 test/Model/UserWalletSupportReadTest.php
 test/Model/UserWriteTest.php
+test/Model/ViewTest.php
 test/Model/WalletUserReadTest.php
 test/Model/WebhookHistoryCollectionReadTest.php
 test/Model/WebhookHistoryReadTest.php

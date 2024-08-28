@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] [readonly]
 **publicUrl** | **string** |  | [optional]
 **thumbnailUrl** | **string** |  | [optional] [readonly]
 

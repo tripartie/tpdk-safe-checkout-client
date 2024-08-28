@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **shippingFees** | **float** |  | [optional]
 **createdAt** | **\DateTime** |  |
 **expireAt** | **\DateTime** |  |
+**iri** | **string** |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

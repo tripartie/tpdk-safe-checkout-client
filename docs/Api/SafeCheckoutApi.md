@@ -6,6 +6,7 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 | ------------- | ------------- | ------------- |
 | [**apiOffersGetCollection()**](SafeCheckoutApi.md#apiOffersGetCollection) | **GET** /offers | Search amongst Offers |
 | [**apiOffersPost()**](SafeCheckoutApi.md#apiOffersPost) | **POST** /offers | Create a public link for Offer |
+| [**apiOffersUlidDelete()**](SafeCheckoutApi.md#apiOffersUlidDelete) | **DELETE** /offers/{ulid} | Disable existing Offer |
 | [**apiOffersUlidGet()**](SafeCheckoutApi.md#apiOffersUlidGet) | **GET** /offers/{ulid} | Fetch a Offer details |
 | [**apiOffersUlidPatch()**](SafeCheckoutApi.md#apiOffersUlidPatch) | **PATCH** /offers/{ulid} | Update existing Offer |
 | [**apiOffersUlidmediasIdDelete()**](SafeCheckoutApi.md#apiOffersUlidmediasIdDelete) | **DELETE** /offers/{ulid}/medias/{id} | Removes the Media resource. |
@@ -28,6 +29,11 @@ Retrieves the collection of Offer resources.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -97,7 +103,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -162,6 +168,70 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `apiOffersUlidDelete()`
+
+```php
+apiOffersUlidDelete($ulid)
+```
+
+Disable existing Offer
+
+Make a specific Offer as non longer active
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tripartie\SafeCheckout\Api\SafeCheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ulid = 'ulid_example'; // string | Offer identifier
+
+try {
+    $apiInstance->apiOffersUlidDelete($ulid);
+} catch (Exception $e) {
+    echo 'Exception when calling SafeCheckoutApi->apiOffersUlidDelete: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ulid** | **string**| Offer identifier | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -250,6 +320,11 @@ Update your existing Offer and reuse existing generated link
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 // Configure OAuth2 access token for authorization: oauth
 $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -284,7 +359,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

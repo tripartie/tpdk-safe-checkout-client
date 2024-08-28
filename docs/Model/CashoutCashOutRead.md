@@ -4,6 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] [readonly]
+**amount** | **float** |  | [optional]
+**iban** | **string** |  |
+**bic** | **string** |  |
+**status** | **string** |  |
+**createdAt** | **\DateTime** |  |
+**confirmedAt** | **\DateTime** |  |
 **providerName** | **string** |  | [optional]
 **providerCreatedAt** | **\DateTime** |  | [optional] [readonly]
 **providerUpdatedAt** | **\DateTime** |  | [optional] [readonly]

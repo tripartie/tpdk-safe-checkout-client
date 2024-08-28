@@ -87,16 +87,9 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**apiOrganizationsGetCollection**](docs/Api/AdminApi.md#apiorganizationsgetcollection) | **GET** /organizations | Retrieves the collection of Organization resources.
 *AdminApi* | [**apiOrganizationsIdGet**](docs/Api/AdminApi.md#apiorganizationsidget) | **GET** /organizations/{id} | Retrieves a Organization resource.
 *AdminApi* | [**apiUsersGetCollection**](docs/Api/AdminApi.md#apiusersgetcollection) | **GET** /users | Retrieves the collection of User resources.
-*AdminApi* | [**apiUsersIdDelete**](docs/Api/AdminApi.md#apiusersiddelete) | **DELETE** /users/{id} | Removes the User resource.
 *AdminApi* | [**apiUsersIdGet**](docs/Api/AdminApi.md#apiusersidget) | **GET** /users/{id} | Retrieves a User resource.
-*AdminApi* | [**apiUsersIdPatch**](docs/Api/AdminApi.md#apiusersidpatch) | **PATCH** /users/{id} | Update your profile
 *AdminApi* | [**apiUsersIddisablePatch**](docs/Api/AdminApi.md#apiusersiddisablepatch) | **PATCH** /users/{id}/disable | Updates the User resource.
-*AdminApi* | [**apiUsersIdemailPatch**](docs/Api/AdminApi.md#apiusersidemailpatch) | **PATCH** /users/{id}/email | Update user email
-*AdminApi* | [**apiUsersIdemailValidationPatch**](docs/Api/AdminApi.md#apiusersidemailvalidationpatch) | **PATCH** /users/{id}/email-validation | Validate email ownership
 *AdminApi* | [**apiUsersIdenablePatch**](docs/Api/AdminApi.md#apiusersidenablepatch) | **PATCH** /users/{id}/enable | Updates the User resource.
-*AdminApi* | [**apiUsersIdpasswordPatch**](docs/Api/AdminApi.md#apiusersidpasswordpatch) | **PATCH** /users/{id}/password | Change your password
-*AdminApi* | [**apiUsersIdtotpSetupPatch**](docs/Api/AdminApi.md#apiusersidtotpsetuppatch) | **PATCH** /users/{id}/totp-setup | Setup an additional authentication factor
-*AdminApi* | [**apiUsersIdtotpTogglePatch**](docs/Api/AdminApi.md#apiusersidtotptogglepatch) | **PATCH** /users/{id}/totp-toggle | Disable the second authentication factor
 *AdminApi* | [**authenticationPost**](docs/Api/AdminApi.md#authenticationpost) | **POST** /authentication | User authentication
 *BrandingApi* | [**apiOrganizationsIdPatch**](docs/Api/BrandingApi.md#apiorganizationsidpatch) | **PATCH** /organizations/{id} | Update your Organization details, branding or parameters
 *BrandingApi* | [**apiOrganizationsIdiconDelete**](docs/Api/BrandingApi.md#apiorganizationsidicondelete) | **DELETE** /organizations/{id}/icon | Unset your Organization Icon
@@ -115,6 +108,7 @@ Class | Method | HTTP request | Description
 *SafeCheckoutApi* | [**apiOffersUlidPatch**](docs/Api/SafeCheckoutApi.md#apioffersulidpatch) | **PATCH** /offers/{ulid} | Update existing Offer
 *SafeCheckoutApi* | [**apiOffersUlidmediasIdDelete**](docs/Api/SafeCheckoutApi.md#apioffersulidmediasiddelete) | **DELETE** /offers/{ulid}/medias/{id} | Removes the Media resource.
 *SafeCheckoutApi* | [**apiOffersUlidmediasPost**](docs/Api/SafeCheckoutApi.md#apioffersulidmediaspost) | **POST** /offers/{ulid}/medias | Upload a picture for a given Offer
+*SafeCheckoutApi* | [**apiUsersIdoffersPost**](docs/Api/SafeCheckoutApi.md#apiusersidofferspost) | **POST** /users/{id}/offers | Create a public link for Offer
 *TransactionApi* | [**apiQuotesIdGet**](docs/Api/TransactionApi.md#apiquotesidget) | **GET** /quotes/{id} | Retrieve a Quote
 *TransactionApi* | [**apiQuotesIdPatch**](docs/Api/TransactionApi.md#apiquotesidpatch) | **PATCH** /quotes/{id} | Update a Quote prior to issuing a Transaction
 *TransactionApi* | [**apiQuotesPost**](docs/Api/TransactionApi.md#apiquotespost) | **POST** /quotes | Create a Quote prior to issuing a Transaction
@@ -134,12 +128,6 @@ Class | Method | HTTP request | Description
 *UserApi* | [**apiCashOutsIdGet**](docs/Api/UserApi.md#apicashoutsidget) | **GET** /cash-outs/{id} | Retrieves a CashOut resource.
 *UserApi* | [**apiCashOutsPost**](docs/Api/UserApi.md#apicashoutspost) | **POST** /cash-outs | Withdraw the full amount available in the user wallet to set bank account
 *UserApi* | [**apiMeGet**](docs/Api/UserApi.md#apimeget) | **GET** /me | Retrieves a User resource.
-*UserApi* | [**apiOffersGetCollection**](docs/Api/UserApi.md#apioffersgetcollection) | **GET** /offers | Search amongst Offers
-*UserApi* | [**apiOffersUlidDelete**](docs/Api/UserApi.md#apioffersuliddelete) | **DELETE** /offers/{ulid} | Disable existing Offer
-*UserApi* | [**apiOffersUlidGet**](docs/Api/UserApi.md#apioffersulidget) | **GET** /offers/{ulid} | Fetch a Offer details
-*UserApi* | [**apiOffersUlidPatch**](docs/Api/UserApi.md#apioffersulidpatch) | **PATCH** /offers/{ulid} | Update existing Offer
-*UserApi* | [**apiOffersUlidmediasIdDelete**](docs/Api/UserApi.md#apioffersulidmediasiddelete) | **DELETE** /offers/{ulid}/medias/{id} | Removes the Media resource.
-*UserApi* | [**apiOffersUlidmediasPost**](docs/Api/UserApi.md#apioffersulidmediaspost) | **POST** /offers/{ulid}/medias | Upload a picture for a given Offer
 *UserApi* | [**apiProofOfIdentitiesGetCollection**](docs/Api/UserApi.md#apiproofofidentitiesgetcollection) | **GET** /proof-of-identities | List all submitted PoI
 *UserApi* | [**apiProofOfIdentitiesIdGet**](docs/Api/UserApi.md#apiproofofidentitiesidget) | **GET** /proof-of-identities/{id} | Retrieve a specific PoI
 *UserApi* | [**apiProofOfIdentitiesIdPatch**](docs/Api/UserApi.md#apiproofofidentitiesidpatch) | **PATCH** /proof-of-identities/{id} | Upload the document for your PoI slot
@@ -151,7 +139,6 @@ Class | Method | HTTP request | Description
 *UserApi* | [**apiUsersIdavatarPost**](docs/Api/UserApi.md#apiusersidavatarpost) | **POST** /users/{id}/avatar | Upload your personal avatar
 *UserApi* | [**apiUsersIdemailPatch**](docs/Api/UserApi.md#apiusersidemailpatch) | **PATCH** /users/{id}/email | Update user email
 *UserApi* | [**apiUsersIdemailValidationPatch**](docs/Api/UserApi.md#apiusersidemailvalidationpatch) | **PATCH** /users/{id}/email-validation | Validate email ownership
-*UserApi* | [**apiUsersIdoffersPost**](docs/Api/UserApi.md#apiusersidofferspost) | **POST** /users/{id}/offers | Create a public link for Offer
 *UserApi* | [**apiUsersIdpasswordPatch**](docs/Api/UserApi.md#apiusersidpasswordpatch) | **PATCH** /users/{id}/password | Change your password
 *UserApi* | [**apiUsersIdtotpSetupPatch**](docs/Api/UserApi.md#apiusersidtotpsetuppatch) | **PATCH** /users/{id}/totp-setup | Setup an additional authentication factor
 *UserApi* | [**apiUsersIdtotpTogglePatch**](docs/Api/UserApi.md#apiusersidtotptogglepatch) | **PATCH** /users/{id}/totp-toggle | Disable the second authentication factor
@@ -205,8 +192,8 @@ Class | Method | HTTP request | Description
 - [OfferPersonaRead](docs/Model/OfferPersonaRead.md)
 - [OfferPostCreationRead](docs/Model/OfferPostCreationRead.md)
 - [OfferRead](docs/Model/OfferRead.md)
+- [OfferSoloWrite](docs/Model/OfferSoloWrite.md)
 - [OfferUpdate](docs/Model/OfferUpdate.md)
-- [OfferWrite](docs/Model/OfferWrite.md)
 - [OrganizationAddressUpdate](docs/Model/OrganizationAddressUpdate.md)
 - [OrganizationCollectionRead](docs/Model/OrganizationCollectionRead.md)
 - [OrganizationMediaCollectionRead](docs/Model/OrganizationMediaCollectionRead.md)
@@ -328,6 +315,6 @@ noc@tripartie.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.23`
+- API version: `2.0.24`
     - Generator version: `7.8.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

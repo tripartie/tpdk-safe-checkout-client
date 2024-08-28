@@ -11,6 +11,7 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 | [**apiOffersUlidPatch()**](SafeCheckoutApi.md#apiOffersUlidPatch) | **PATCH** /offers/{ulid} | Update existing Offer |
 | [**apiOffersUlidmediasIdDelete()**](SafeCheckoutApi.md#apiOffersUlidmediasIdDelete) | **DELETE** /offers/{ulid}/medias/{id} | Removes the Media resource. |
 | [**apiOffersUlidmediasPost()**](SafeCheckoutApi.md#apiOffersUlidmediasPost) | **POST** /offers/{ulid}/medias | Upload a picture for a given Offer |
+| [**apiUsersIdoffersPost()**](SafeCheckoutApi.md#apiUsersIdoffersPost) | **POST** /users/{id}/offers | Create a public link for Offer |
 
 
 ## `apiOffersGetCollection()`
@@ -492,6 +493,75 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `apiUsersIdoffersPost()`
+
+```php
+apiUsersIdoffersPost($id, $ulid, $offerSoloWrite): \Tripartie\SafeCheckout\Model\OfferPostCreationRead
+```
+
+Create a public link for Offer
+
+Create a public listening Offer linked to a specific User
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tripartie\SafeCheckout\Api\SafeCheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | User identifier
+$ulid = 'ulid_example'; // string | Offer identifier
+$offerSoloWrite = new \Tripartie\SafeCheckout\Model\OfferSoloWrite(); // \Tripartie\SafeCheckout\Model\OfferSoloWrite | The new Offer resource
+
+try {
+    $result = $apiInstance->apiUsersIdoffersPost($id, $ulid, $offerSoloWrite);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SafeCheckoutApi->apiUsersIdoffersPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| User identifier | |
+| **ulid** | **string**| Offer identifier | |
+| **offerSoloWrite** | [**\Tripartie\SafeCheckout\Model\OfferSoloWrite**](../Model/OfferSoloWrite.md)| The new Offer resource | |
+
+### Return type
+
+[**\Tripartie\SafeCheckout\Model\OfferPostCreationRead**](../Model/OfferPostCreationRead.md)
+
+### Authorization
+
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

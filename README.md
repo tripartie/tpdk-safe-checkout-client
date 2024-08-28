@@ -55,9 +55,6 @@ $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAp
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new Tripartie\SafeCheckout\Api\AdminApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -65,13 +62,13 @@ $apiInstance = new Tripartie\SafeCheckout\Api\AdminApi(
     new GuzzleHttp\Client(),
     $config
 );
-$userInvite = new \Tripartie\SafeCheckout\Model\UserInvite(); // \Tripartie\SafeCheckout\Model\UserInvite | The new User resource
+$page = 1; // int | The collection page number
 
 try {
-    $result = $apiInstance->apiInvitePost($userInvite);
+    $result = $apiInstance->apiApiClientsGetCollection($page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AdminApi->apiInvitePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdminApi->apiApiClientsGetCollection: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -82,6 +79,10 @@ All URIs are relative to *https://staging-api.tripartie.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AdminApi* | [**apiApiClientsGetCollection**](docs/Api/AdminApi.md#apiapiclientsgetcollection) | **GET** /api-clients | Retrieves the collection of ApiClient resources.
+*AdminApi* | [**apiApiClientsIdentifierDelete**](docs/Api/AdminApi.md#apiapiclientsidentifierdelete) | **DELETE** /api-clients/{identifier} | Removes the ApiClient resource.
+*AdminApi* | [**apiApiClientsIdentifierGet**](docs/Api/AdminApi.md#apiapiclientsidentifierget) | **GET** /api-clients/{identifier} | Retrieves a ApiClient resource.
+*AdminApi* | [**apiApiClientsPost**](docs/Api/AdminApi.md#apiapiclientspost) | **POST** /api-clients | Creates a ApiClient resource.
 *AdminApi* | [**apiInvitePost**](docs/Api/AdminApi.md#apiinvitepost) | **POST** /invite | Organization invite
 *AdminApi* | [**apiOrganizationsGetCollection**](docs/Api/AdminApi.md#apiorganizationsgetcollection) | **GET** /organizations | Retrieves the collection of Organization resources.
 *AdminApi* | [**apiOrganizationsIdGet**](docs/Api/AdminApi.md#apiorganizationsidget) | **GET** /organizations/{id} | Retrieves a Organization resource.
@@ -96,6 +97,7 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**apiUsersIdpasswordPatch**](docs/Api/AdminApi.md#apiusersidpasswordpatch) | **PATCH** /users/{id}/password | Change your password
 *AdminApi* | [**apiUsersIdtotpSetupPatch**](docs/Api/AdminApi.md#apiusersidtotpsetuppatch) | **PATCH** /users/{id}/totp-setup | Setup an additional authentication factor
 *AdminApi* | [**apiUsersIdtotpTogglePatch**](docs/Api/AdminApi.md#apiusersidtotptogglepatch) | **PATCH** /users/{id}/totp-toggle | Disable the second authentication factor
+*AdminApi* | [**authenticationPost**](docs/Api/AdminApi.md#authenticationpost) | **POST** /authentication | User authentication
 *BrandingApi* | [**apiOrganizationsIdPatch**](docs/Api/BrandingApi.md#apiorganizationsidpatch) | **PATCH** /organizations/{id} | Update your Organization details, branding or parameters
 *BrandingApi* | [**apiOrganizationsIdiconDelete**](docs/Api/BrandingApi.md#apiorganizationsidicondelete) | **DELETE** /organizations/{id}/icon | Unset your Organization Icon
 *BrandingApi* | [**apiOrganizationsIdiconPost**](docs/Api/BrandingApi.md#apiorganizationsidiconpost) | **POST** /organizations/{id}/icon | Upload your Organization Icon
@@ -108,6 +110,7 @@ Class | Method | HTTP request | Description
 *PersonaApi* | [**apiPersonasPost**](docs/Api/PersonaApi.md#apipersonaspost) | **POST** /personas | Register a Persona (Your customer)
 *SafeCheckoutApi* | [**apiOffersGetCollection**](docs/Api/SafeCheckoutApi.md#apioffersgetcollection) | **GET** /offers | Search amongst Offers
 *SafeCheckoutApi* | [**apiOffersPost**](docs/Api/SafeCheckoutApi.md#apiofferspost) | **POST** /offers | Create a public link for Offer
+*SafeCheckoutApi* | [**apiOffersUlidDelete**](docs/Api/SafeCheckoutApi.md#apioffersuliddelete) | **DELETE** /offers/{ulid} | Disable existing Offer
 *SafeCheckoutApi* | [**apiOffersUlidGet**](docs/Api/SafeCheckoutApi.md#apioffersulidget) | **GET** /offers/{ulid} | Fetch a Offer details
 *SafeCheckoutApi* | [**apiOffersUlidPatch**](docs/Api/SafeCheckoutApi.md#apioffersulidpatch) | **PATCH** /offers/{ulid} | Update existing Offer
 *SafeCheckoutApi* | [**apiOffersUlidmediasIdDelete**](docs/Api/SafeCheckoutApi.md#apioffersulidmediasiddelete) | **DELETE** /offers/{ulid}/medias/{id} | Removes the Media resource.
@@ -119,22 +122,24 @@ Class | Method | HTTP request | Description
 *TransactionApi* | [**apiTransactionsPost**](docs/Api/TransactionApi.md#apitransactionspost) | **POST** /transactions | Initialize a new Transaction
 *TransactionApi* | [**apiTransactionsUlidGet**](docs/Api/TransactionApi.md#apitransactionsulidget) | **GET** /transactions/{ulid} | Get a Transaction
 *TransactionApi* | [**apiTransactionsUlidPatch**](docs/Api/TransactionApi.md#apitransactionsulidpatch) | **PATCH** /transactions/{ulid} | Interact with a Transaction
-*UserApi* | [**apiApiClientsGetCollection**](docs/Api/UserApi.md#apiapiclientsgetcollection) | **GET** /api-clients | Retrieves the collection of ApiClient resources.
-*UserApi* | [**apiApiClientsIdentifierDelete**](docs/Api/UserApi.md#apiapiclientsidentifierdelete) | **DELETE** /api-clients/{identifier} | Removes the ApiClient resource.
-*UserApi* | [**apiApiClientsIdentifierGet**](docs/Api/UserApi.md#apiapiclientsidentifierget) | **GET** /api-clients/{identifier} | Retrieves a ApiClient resource.
-*UserApi* | [**apiApiClientsPost**](docs/Api/UserApi.md#apiapiclientspost) | **POST** /api-clients | Creates a ApiClient resource.
 *UserApi* | [**apiBankAccountsIdDelete**](docs/Api/UserApi.md#apibankaccountsiddelete) | **DELETE** /bank-accounts/{id} | Removes the BankAccount resource.
 *UserApi* | [**apiBankAccountsIdGet**](docs/Api/UserApi.md#apibankaccountsidget) | **GET** /bank-accounts/{id} | Retrieves a BankAccount resource.
 *UserApi* | [**apiBankAccountsPost**](docs/Api/UserApi.md#apibankaccountspost) | **POST** /bank-accounts | Creates a BankAccount resource.
 *UserApi* | [**apiCardsGetCollection**](docs/Api/UserApi.md#apicardsgetcollection) | **GET** /cards | Retrieves the collection of Card resources.
 *UserApi* | [**apiCardsIdDelete**](docs/Api/UserApi.md#apicardsiddelete) | **DELETE** /cards/{id} | Removes the Card resource.
 *UserApi* | [**apiCardsIdGet**](docs/Api/UserApi.md#apicardsidget) | **GET** /cards/{id} | Retrieves a Card resource.
-*UserApi* | [**apiCardsIdPatch**](docs/Api/UserApi.md#apicardsidpatch) | **PATCH** /cards/{id} | Updates the Card resource.
+*UserApi* | [**apiCardsIdPatch**](docs/Api/UserApi.md#apicardsidpatch) | **PATCH** /cards/{id} | Push back the tokenization output from the external provider
 *UserApi* | [**apiCardsPost**](docs/Api/UserApi.md#apicardspost) | **POST** /cards | Creates a Card resource.
 *UserApi* | [**apiCashOutsGetCollection**](docs/Api/UserApi.md#apicashoutsgetcollection) | **GET** /cash-outs | Retrieves the collection of CashOut resources.
 *UserApi* | [**apiCashOutsIdGet**](docs/Api/UserApi.md#apicashoutsidget) | **GET** /cash-outs/{id} | Retrieves a CashOut resource.
-*UserApi* | [**apiCashOutsPost**](docs/Api/UserApi.md#apicashoutspost) | **POST** /cash-outs | Creates a CashOut resource.
+*UserApi* | [**apiCashOutsPost**](docs/Api/UserApi.md#apicashoutspost) | **POST** /cash-outs | Withdraw the full amount available in the user wallet to set bank account
 *UserApi* | [**apiMeGet**](docs/Api/UserApi.md#apimeget) | **GET** /me | Retrieves a User resource.
+*UserApi* | [**apiOffersGetCollection**](docs/Api/UserApi.md#apioffersgetcollection) | **GET** /offers | Search amongst Offers
+*UserApi* | [**apiOffersUlidDelete**](docs/Api/UserApi.md#apioffersuliddelete) | **DELETE** /offers/{ulid} | Disable existing Offer
+*UserApi* | [**apiOffersUlidGet**](docs/Api/UserApi.md#apioffersulidget) | **GET** /offers/{ulid} | Fetch a Offer details
+*UserApi* | [**apiOffersUlidPatch**](docs/Api/UserApi.md#apioffersulidpatch) | **PATCH** /offers/{ulid} | Update existing Offer
+*UserApi* | [**apiOffersUlidmediasIdDelete**](docs/Api/UserApi.md#apioffersulidmediasiddelete) | **DELETE** /offers/{ulid}/medias/{id} | Removes the Media resource.
+*UserApi* | [**apiOffersUlidmediasPost**](docs/Api/UserApi.md#apioffersulidmediaspost) | **POST** /offers/{ulid}/medias | Upload a picture for a given Offer
 *UserApi* | [**apiProofOfIdentitiesGetCollection**](docs/Api/UserApi.md#apiproofofidentitiesgetcollection) | **GET** /proof-of-identities | List all submitted PoI
 *UserApi* | [**apiProofOfIdentitiesIdGet**](docs/Api/UserApi.md#apiproofofidentitiesidget) | **GET** /proof-of-identities/{id} | Retrieve a specific PoI
 *UserApi* | [**apiProofOfIdentitiesIdPatch**](docs/Api/UserApi.md#apiproofofidentitiesidpatch) | **PATCH** /proof-of-identities/{id} | Upload the document for your PoI slot
@@ -166,6 +171,7 @@ Class | Method | HTTP request | Description
 - [ApiClientRead](docs/Model/ApiClientRead.md)
 - [ApiClientWrite](docs/Model/ApiClientWrite.md)
 - [AuthError](docs/Model/AuthError.md)
+- [BankAccountRead](docs/Model/BankAccountRead.md)
 - [BankAccountUserRead](docs/Model/BankAccountUserRead.md)
 - [BankAccountWrite](docs/Model/BankAccountWrite.md)
 - [CardCollectionRead](docs/Model/CardCollectionRead.md)
@@ -175,7 +181,10 @@ Class | Method | HTTP request | Description
 - [CardRead](docs/Model/CardRead.md)
 - [CardUpdate](docs/Model/CardUpdate.md)
 - [CardUserRead](docs/Model/CardUserRead.md)
+- [CardWrite](docs/Model/CardWrite.md)
+- [CashoutCashOutCollectionRead](docs/Model/CashoutCashOutCollectionRead.md)
 - [CashoutCashOutRead](docs/Model/CashoutCashOutRead.md)
+- [CashoutCashOutWrite](docs/Model/CashoutCashOutWrite.md)
 - [GenericError](docs/Model/GenericError.md)
 - [InvalidQueryError](docs/Model/InvalidQueryError.md)
 - [Media](docs/Model/Media.md)
@@ -184,6 +193,7 @@ Class | Method | HTTP request | Description
 - [MessageError](docs/Model/MessageError.md)
 - [Metadata](docs/Model/Metadata.md)
 - [NotFoundError](docs/Model/NotFoundError.md)
+- [Offer](docs/Model/Offer.md)
 - [OfferAddressIndependentWrite](docs/Model/OfferAddressIndependentWrite.md)
 - [OfferCollectionRead](docs/Model/OfferCollectionRead.md)
 - [OfferIndependentWrite](docs/Model/OfferIndependentWrite.md)
@@ -218,10 +228,12 @@ Class | Method | HTTP request | Description
 - [PersonaWrite](docs/Model/PersonaWrite.md)
 - [ProofOfIdentityCollectionRead](docs/Model/ProofOfIdentityCollectionRead.md)
 - [ProofOfIdentityRead](docs/Model/ProofOfIdentityRead.md)
+- [ProofOfIdentityWrite](docs/Model/ProofOfIdentityWrite.md)
 - [QuoteRead](docs/Model/QuoteRead.md)
 - [QuoteUpdate](docs/Model/QuoteUpdate.md)
 - [QuoteWrite](docs/Model/QuoteWrite.md)
 - [RateLimitError](docs/Model/RateLimitError.md)
+- [TransactionCardRead](docs/Model/TransactionCardRead.md)
 - [TransactionCollectionRead](docs/Model/TransactionCollectionRead.md)
 - [TransactionMetadataRead](docs/Model/TransactionMetadataRead.md)
 - [TransactionOfferCollectionRead](docs/Model/TransactionOfferCollectionRead.md)
@@ -233,6 +245,7 @@ Class | Method | HTTP request | Description
 - [TransactionQuoteRead](docs/Model/TransactionQuoteRead.md)
 - [TransactionRead](docs/Model/TransactionRead.md)
 - [TransactionUpdate](docs/Model/TransactionUpdate.md)
+- [TransactionWalletRead](docs/Model/TransactionWalletRead.md)
 - [TransactionWrite](docs/Model/TransactionWrite.md)
 - [UnprocessableEntity](docs/Model/UnprocessableEntity.md)
 - [UnprocessableEntityViolationsInner](docs/Model/UnprocessableEntityViolationsInner.md)
@@ -266,6 +279,7 @@ Class | Method | HTTP request | Description
 - [UserWalletCollectionRead](docs/Model/UserWalletCollectionRead.md)
 - [UserWalletSupportRead](docs/Model/UserWalletSupportRead.md)
 - [UserWrite](docs/Model/UserWrite.md)
+- [View](docs/Model/View.md)
 - [WalletUserRead](docs/Model/WalletUserRead.md)
 - [Webhook](docs/Model/Webhook.md)
 - [WebhookHistoryCollectionRead](docs/Model/WebhookHistoryCollectionRead.md)
@@ -314,6 +328,6 @@ noc@tripartie.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.22`
+- API version: `2.0.23`
     - Generator version: `7.8.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

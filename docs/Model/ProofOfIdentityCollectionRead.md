@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **string** |  |
+**type** | **string** |  |
 **originalFilename** | **string** |  | [optional]
 **extension** | **string** |  |
 **createdAt** | **\DateTime** |  |

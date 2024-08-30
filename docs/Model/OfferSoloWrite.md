@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**captcha** | **string** |  | [optional]
+**captcha** | **string** |  |
 **nature** | **string** | This WILL affect the assigned workflow. Choosing service will disable delivery for example. Refer to our technical hub for more information. | [optional] [default to 'physical_item']
 **title** | **string** |  | [optional]
 **description** | **string** |  | [optional]

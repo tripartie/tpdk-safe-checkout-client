@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **status** | **string** |  |
 **publicUrl** | **string** | The public URL for your Ad/Offer on your marketplace. | [optional]
 **redirectUrl** | **string** | Fill-in that field IF you intend to redirect your customer instead of using a WebView. | [optional]
+**url** | **string** |  | [readonly]
 **organization** | [**\Tripartie\SafeCheckout\Model\OfferOrganizationRead**](OfferOrganizationRead.md) |  | [optional]
 **seller** | [**\Tripartie\SafeCheckout\Model\OfferPersonaRead**](OfferPersonaRead.md) |  |
 **presetBuyer** | [**\Tripartie\SafeCheckout\Model\OfferPersonaRead**](OfferPersonaRead.md) |  | [optional]

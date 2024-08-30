@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**shippingCarrier** | **string** |  |
+**shippingCarrier** | **string** |  | [optional]
+**pickupCode** | **string** |  | [optional]
 **quantityToBeAcquired** | **int** |  | [default to 1]
 **attemptUnitPrice** | **float** |  | [optional]
 

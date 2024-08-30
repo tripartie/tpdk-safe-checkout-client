@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **title** | **string** |  | [optional]
 **unitPrice** | **float** |  | [optional]
 **minNegotiableUnitPrice** | **float** |  | [optional]
-**allowToNegotiateUnitPrice** | **bool** |  |
+**allowToNegotiateUnitPrice** | **bool** |  | [optional]
 **currencyCode** | **string** |  | [default to 'EUR']
 **itemCount** | **int** |  | [optional] [default to 1]
 **condition** | **string** |  | [optional] [default to 'USED']

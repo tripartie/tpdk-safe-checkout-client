@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly]
 **amount** | **float** |  | [optional]
+**currency** | **string** |  |
 **iban** | **string** |  |
 **bic** | **string** |  |
 **status** | **string** |  |

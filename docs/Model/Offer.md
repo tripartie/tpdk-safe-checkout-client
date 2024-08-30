@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] [readonly]
 **ulid** | **string** |  |
 **status** | **string** |  |
+**captcha** | **string** |  | [optional]
 **publicUrl** | **string** | The public URL for your Ad/Offer on your marketplace. | [optional]
 **redirectUrl** | **string** | Fill-in that field IF you intend to redirect your customer instead of using a WebView. | [optional]
 **url** | **string** |  | [readonly]
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional]
 **unitPrice** | **float** |  | [optional]
 **minNegotiableUnitPrice** | **float** |  | [optional]
-**allowToNegotiateUnitPrice** | **bool** |  |
+**allowToNegotiateUnitPrice** | **bool** |  | [optional]
 **currencyCode** | **string** |  | [default to 'EUR']
 **itemCount** | **int** |  | [optional] [default to 1]
 **condition** | **string** |  | [optional] [default to 'USED']

@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**captcha** | **string** |  | [optional]
 **nature** | **string** | This WILL affect the assigned workflow. Choosing service will disable delivery for example. Refer to our technical hub for more information. | [optional] [default to 'physical_item']
 **title** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **unitPrice** | **float** |  | [optional]
 **minNegotiableUnitPrice** | **float** |  | [optional]
-**allowToNegotiateUnitPrice** | **bool** |  | [optional]
+**allowToNegotiateUnitPrice** | **bool** |  |
 **currencyCode** | **string** |  | [optional] [default to 'EUR']
 **itemCount** | **int** |  | [optional] [default to 1]
 **condition** | **string** |  | [optional] [default to 'USED']

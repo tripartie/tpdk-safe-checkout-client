@@ -11,7 +11,7 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 | [**apiOffersUlidPatch()**](SafeCheckoutApi.md#apiOffersUlidPatch) | **PATCH** /offers/{ulid} | Update existing Offer |
 | [**apiOffersUlidmediasIdDelete()**](SafeCheckoutApi.md#apiOffersUlidmediasIdDelete) | **DELETE** /offers/{ulid}/medias/{id} | Removes the Media resource. |
 | [**apiOffersUlidmediasPost()**](SafeCheckoutApi.md#apiOffersUlidmediasPost) | **POST** /offers/{ulid}/medias | Upload a picture for a given Offer |
-| [**apiUsersIdoffersPost()**](SafeCheckoutApi.md#apiUsersIdoffersPost) | **POST** /users/{id}/offers | Create a public link for Offer |
+| [**apiUsersIdoffersPost()**](SafeCheckoutApi.md#apiUsersIdoffersPost) | **POST** /users/{id}/offers | Issue an Offer as User |
 
 
 ## `apiOffersGetCollection()`
@@ -502,10 +502,10 @@ try {
 ## `apiUsersIdoffersPost()`
 
 ```php
-apiUsersIdoffersPost($id, $ulid, $offerSoloWrite): \Tripartie\SafeCheckout\Model\OfferPostCreationRead
+apiUsersIdoffersPost($id, $offerSoloWrite): \Tripartie\SafeCheckout\Model\OfferPostCreationRead
 ```
 
-Create a public link for Offer
+Issue an Offer as User
 
 Create a public listening Offer linked to a specific User
 
@@ -532,11 +532,10 @@ $apiInstance = new Tripartie\SafeCheckout\Api\SafeCheckoutApi(
     $config
 );
 $id = 56; // int | User identifier
-$ulid = 'ulid_example'; // string | Offer identifier
 $offerSoloWrite = new \Tripartie\SafeCheckout\Model\OfferSoloWrite(); // \Tripartie\SafeCheckout\Model\OfferSoloWrite | The new Offer resource
 
 try {
-    $result = $apiInstance->apiUsersIdoffersPost($id, $ulid, $offerSoloWrite);
+    $result = $apiInstance->apiUsersIdoffersPost($id, $offerSoloWrite);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SafeCheckoutApi->apiUsersIdoffersPost: ', $e->getMessage(), PHP_EOL;
@@ -548,7 +547,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| User identifier | |
-| **ulid** | **string**| Offer identifier | |
 | **offerSoloWrite** | [**\Tripartie\SafeCheckout\Model\OfferSoloWrite**](../Model/OfferSoloWrite.md)| The new Offer resource | |
 
 ### Return type

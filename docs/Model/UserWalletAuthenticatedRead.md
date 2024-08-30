@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **balance** | **float** |  | [optional]
+**currency** | **string** |  |
 **createdAt** | **\DateTime** |  |
 **updatedAt** | **\DateTime** |  |
 **providerName** | **string** |  | [optional]

@@ -12,6 +12,7 @@ docs/Api/UserApi.md
 docs/Api/WebhookApi.md
 docs/Model/AccessError.md
 docs/Model/Address.md
+docs/Model/AddressUserRead.md
 docs/Model/ApiClientPostCreationRead.md
 docs/Model/ApiClientRead.md
 docs/Model/ApiClientWrite.md
@@ -94,6 +95,10 @@ docs/Model/TransactionWalletRead.md
 docs/Model/TransactionWrite.md
 docs/Model/UnprocessableEntity.md
 docs/Model/UnprocessableEntityViolationsInner.md
+docs/Model/UserAddressAuthenticatedRead.md
+docs/Model/UserAddressCollectionRead.md
+docs/Model/UserAddressSupportRead.md
+docs/Model/UserAddressUpdate.md
 docs/Model/UserAuthenticatedRead.md
 docs/Model/UserBankAccountAuthenticatedRead.md
 docs/Model/UserCardAuthenticatedRead.md
@@ -145,6 +150,7 @@ lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AccessError.php
 lib/Model/Address.php
+lib/Model/AddressUserRead.php
 lib/Model/ApiClientPostCreationRead.php
 lib/Model/ApiClientRead.php
 lib/Model/ApiClientWrite.php
@@ -228,6 +234,10 @@ lib/Model/TransactionWalletRead.php
 lib/Model/TransactionWrite.php
 lib/Model/UnprocessableEntity.php
 lib/Model/UnprocessableEntityViolationsInner.php
+lib/Model/UserAddressAuthenticatedRead.php
+lib/Model/UserAddressCollectionRead.php
+lib/Model/UserAddressSupportRead.php
+lib/Model/UserAddressUpdate.php
 lib/Model/UserAuthenticatedRead.php
 lib/Model/UserBankAccountAuthenticatedRead.php
 lib/Model/UserCardAuthenticatedRead.php
@@ -277,6 +287,7 @@ test/Api/UserApiTest.php
 test/Api/WebhookApiTest.php
 test/Model/AccessErrorTest.php
 test/Model/AddressTest.php
+test/Model/AddressUserReadTest.php
 test/Model/ApiClientPostCreationReadTest.php
 test/Model/ApiClientReadTest.php
 test/Model/ApiClientWriteTest.php
@@ -359,6 +370,10 @@ test/Model/TransactionWalletReadTest.php
 test/Model/TransactionWriteTest.php
 test/Model/UnprocessableEntityTest.php
 test/Model/UnprocessableEntityViolationsInnerTest.php
+test/Model/UserAddressAuthenticatedReadTest.php
+test/Model/UserAddressCollectionReadTest.php
+test/Model/UserAddressSupportReadTest.php
+test/Model/UserAddressUpdateTest.php
 test/Model/UserAuthenticatedReadTest.php
 test/Model/UserBankAccountAuthenticatedReadTest.php
 test/Model/UserCardAuthenticatedReadTest.php

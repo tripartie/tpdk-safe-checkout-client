@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [readonly]
-**mainAddress** | **object** |  | [optional]
+**mainAddress** | [**\Tripartie\SafeCheckout\Model\UserAddressSupportRead**](UserAddressSupportRead.md) |  | [optional]
 **firstName** | **string** |  | [optional]
 **lastName** | **string** |  | [optional]
 **publicName** | **string** |  | [optional]

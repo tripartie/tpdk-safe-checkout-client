@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mainAddress** | **object** |  | [optional]
+**mainAddress** | [**\Tripartie\SafeCheckout\Model\UserAddressUpdate**](UserAddressUpdate.md) |  | [optional]
 **firstName** | **string** |  | [optional]
 **lastName** | **string** |  | [optional]
 **publicName** | **string** |  | [optional]

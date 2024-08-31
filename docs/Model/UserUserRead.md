@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **updatedAt** | **\DateTime** |  | [optional] [readonly]
 **consentMailAds** | **bool** |  | [optional]
 **lockdown** | **bool** |  | [optional]
+**timeZoneOffset** | **int** | Timezone offset. Expressed in minutes. Used for DT conversion and fraud prevention. | [optional]
 **organization** | [**\Tripartie\SafeCheckout\Model\OrganizationUserRead**](OrganizationUserRead.md) |  | [optional]
 **bankAccount** | [**\Tripartie\SafeCheckout\Model\BankAccountUserRead**](BankAccountUserRead.md) |  | [optional]
 **identityVerifiedAt** | **\DateTime** |  | [optional]

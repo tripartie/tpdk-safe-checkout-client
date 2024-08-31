@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **avatar** | [**\Tripartie\SafeCheckout\Model\UserMediaCollectionRead**](UserMediaCollectionRead.md) |  | [optional]
 **createdAt** | **\DateTime** |  | [optional] [readonly]
 **updatedAt** | **\DateTime** |  | [optional] [readonly]
+**timeZoneOffset** | **int** | Timezone offset. Expressed in minutes. Used for DT conversion and fraud prevention. | [optional]
 **organization** | [**\Tripartie\SafeCheckout\Model\UserOrganizationCollectionRead**](UserOrganizationCollectionRead.md) |  | [optional]
 **wallet** | [**\Tripartie\SafeCheckout\Model\UserWalletCollectionRead**](UserWalletCollectionRead.md) |  | [optional]
 **externalId** | **string** |  | [optional]

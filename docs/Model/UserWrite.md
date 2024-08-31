@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **homeCountry** | **string** | The originating country | [optional]
 **preferredLanguage** | **string** |  | [optional]
 **consentMailAds** | **bool** |  | [optional]
+**timeZoneOffset** | **int** | Timezone offset. Expressed in minutes. Used for DT conversion and fraud prevention. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **pickupCode** | **string** |  | [optional]
 **quantityToBeAcquired** | **int** |  | [default to 1]
 **attemptUnitPrice** | **float** |  | [optional]
+**currency** | **string** | Expect &#39;EUR&#39; only for now. | [optional] [default to 'EUR']
+**originalUnitPrice** | **float** |  | [optional]
 **transactionFees** | **float** |  | [optional]
 **shippingFees** | **float** |  | [optional]
 **createdAt** | **\DateTime** |  |

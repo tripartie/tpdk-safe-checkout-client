@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **currency** | **string** |  | [optional] [default to 'EUR']
 **status** | **string** |  | [optional]
 **labelPublicUrl** | **string** |  | [optional]
+**trackingPublicUrl** | **string** |  | [optional]
+**historicalRecipientAddress** | **string** |  | [optional]
+**historicalSenderAddress** | **string** |  | [optional]
 **createdAt** | **\DateTime** |  | [optional] [readonly]
 **updatedAt** | **\DateTime** |  | [optional] [readonly]
 

@@ -10,5 +10,8 @@ Name | Type | Description | Notes
 **pickupCode** | **string** |  | [optional]
 **quantityToBeAcquired** | **int** |  | [default to 1]
 **attemptUnitPrice** | **float** |  | [optional]
+**thirdPartyRecipientFirstName** | **string** |  | [optional]
+**thirdPartyRecipientLastName** | **string** |  | [optional]
+**thirdPartyRecipientAddress** | [**\Tripartie\SafeCheckout\Model\QuoteAddressWrite**](QuoteAddressWrite.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

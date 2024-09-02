@@ -75,6 +75,9 @@ docs/Model/PersonaWrite.md
 docs/Model/ProofOfIdentityCollectionRead.md
 docs/Model/ProofOfIdentityRead.md
 docs/Model/ProofOfIdentityWrite.md
+docs/Model/QuoteAddressRead.md
+docs/Model/QuoteAddressUpdate.md
+docs/Model/QuoteAddressWrite.md
 docs/Model/QuoteRead.md
 docs/Model/QuoteUpdate.md
 docs/Model/QuoteWrite.md
@@ -214,6 +217,9 @@ lib/Model/PersonaWrite.php
 lib/Model/ProofOfIdentityCollectionRead.php
 lib/Model/ProofOfIdentityRead.php
 lib/Model/ProofOfIdentityWrite.php
+lib/Model/QuoteAddressRead.php
+lib/Model/QuoteAddressUpdate.php
+lib/Model/QuoteAddressWrite.php
 lib/Model/QuoteRead.php
 lib/Model/QuoteUpdate.php
 lib/Model/QuoteWrite.php
@@ -350,6 +356,9 @@ test/Model/PersonaWriteTest.php
 test/Model/ProofOfIdentityCollectionReadTest.php
 test/Model/ProofOfIdentityReadTest.php
 test/Model/ProofOfIdentityWriteTest.php
+test/Model/QuoteAddressReadTest.php
+test/Model/QuoteAddressUpdateTest.php
+test/Model/QuoteAddressWriteTest.php
 test/Model/QuoteReadTest.php
 test/Model/QuoteUpdateTest.php
 test/Model/QuoteWriteTest.php

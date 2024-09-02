@@ -11,8 +11,12 @@ Name | Type | Description | Notes
 **attemptUnitPrice** | **float** |  | [optional]
 **currency** | **string** | Expect &#39;EUR&#39; only for now. | [optional] [default to 'EUR']
 **originalUnitPrice** | **float** |  | [optional]
+**originalUnitPriceUnconverted** | **float** |  | [optional]
 **transactionFees** | **float** |  | [optional]
 **shippingFees** | **float** |  | [optional]
+**thirdPartyRecipientFirstName** | **string** |  | [optional]
+**thirdPartyRecipientLastName** | **string** |  | [optional]
+**thirdPartyRecipientAddress** | **object** |  | [optional]
 **createdAt** | **\DateTime** |  |
 **expireAt** | **\DateTime** |  |
 **iri** | **string** |  | [optional] [readonly]

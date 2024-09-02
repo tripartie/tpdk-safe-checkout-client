@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ulid** | **string** |  |
 **offer** | [**\Tripartie\SafeCheckout\Model\TransactionOfferCollectionRead**](TransactionOfferCollectionRead.md) |  |
 **quote** | [**\Tripartie\SafeCheckout\Model\TransactionQuoteCollectionRead**](TransactionQuoteCollectionRead.md) |  |
+**buyerMessage** | **string** | Attach a note. Only the buyer can exercise this right. At the creation. | [optional]
 **buyer** | [**\Tripartie\SafeCheckout\Model\TransactionPersonaCollectionRead**](TransactionPersonaCollectionRead.md) |  |
 **status** | **string** |  | [optional]
 **fees** | **float** |  | [optional]

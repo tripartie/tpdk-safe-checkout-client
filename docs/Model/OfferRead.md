@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **presetBuyer** | [**\Tripartie\SafeCheckout\Model\OfferPersonaRead**](OfferPersonaRead.md) |  | [optional]
 **nature** | **string** | This WILL affect the assigned workflow. Choosing service will disable delivery for example. Refer to our technical hub for more information. | [default to 'physical_item']
 **title** | **string** |  | [optional]
+**description** | **string** |  | [optional]
 **unitPrice** | **float** |  | [optional]
 **currencyCode** | **string** |  | [default to 'EUR']
 **itemCount** | **int** |  | [optional] [default to 1]

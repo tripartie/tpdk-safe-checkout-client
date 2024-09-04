@@ -11,6 +11,9 @@ Name | Type | Description | Notes
 **roleInCompany** | **string** |  | [optional]
 **birthday** | **\DateTime** |  | [optional]
 **intlPhoneNumber** | **string** |  | [optional]
+**originCountry** | **string** | The nationality of the current user. | [optional]
+**homeCountry** | **string** | The originating country | [optional]
+**preferredLanguage** | **string** |  | [optional]
 **consentMailAds** | **bool** |  |
 **timeZoneOffset** | **int** | Timezone offset. Expressed in minutes. Used for DT conversion and fraud prevention. | [optional]
 

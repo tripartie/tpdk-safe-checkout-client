@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**captcha** | **string** |  | [optional]
+**captcha** | **string** |  |
 **offer** | **string** |  | [optional]
 **shippingCarrier** | **string** |  | [optional]
 **pickupCode** | **string** |  | [optional]
-**quantityToBeAcquired** | **int** |  | [default to 1]
+**quantityToBeAcquired** | **int** |  | [optional] [default to 1]
 **attemptUnitPrice** | **float** |  | [optional]
 **thirdPartyRecipientFirstName** | **string** |  | [optional]
 **thirdPartyRecipientLastName** | **string** |  | [optional]

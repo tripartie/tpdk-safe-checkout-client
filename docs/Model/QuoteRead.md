@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ulid** | **string** |  |
+**ulid** | **string** |  | [optional]
 **shippingCarrier** | **string** |  | [optional]
 **pickupCode** | **string** |  | [optional]
-**quantityToBeAcquired** | **int** |  | [default to 1]
+**quantityToBeAcquired** | **int** |  | [optional] [default to 1]
 **attemptUnitPrice** | **float** |  | [optional]
 **currency** | **string** | Expect &#39;EUR&#39; only for now. | [optional] [default to 'EUR']
 **originalUnitPrice** | **float** |  | [optional]
@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 **thirdPartyRecipientFirstName** | **string** |  | [optional]
 **thirdPartyRecipientLastName** | **string** |  | [optional]
 **thirdPartyRecipientAddress** | [**\Tripartie\SafeCheckout\Model\QuoteAddressRead**](QuoteAddressRead.md) |  | [optional]
-**createdAt** | **\DateTime** |  |
-**expireAt** | **\DateTime** |  |
+**createdAt** | **\DateTime** |  | [optional]
+**expireAt** | **\DateTime** |  | [optional]
 **iri** | **string** |  | [optional] [readonly]
 **unitPrice** | **float** |  | [optional] [readonly]
 **price** | **float** |  | [optional] [readonly]

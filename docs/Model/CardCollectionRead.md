@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **updatedAt** | **\DateTime** |  |
 **metadata** | [**\Tripartie\SafeCheckout\Model\CardMetadataCollectionRead[]**](CardMetadataCollectionRead.md) |  | [optional]
 **providerName** | **string** |  | [optional]
-**providerCreatedAt** | **\DateTime** |  | [optional] [readonly]
-**providerUpdatedAt** | **\DateTime** |  | [optional] [readonly]
+**providerCreatedAt** | **\DateTime** |  | [optional]
+**providerUpdatedAt** | **\DateTime** |  | [optional]
 **iri** | **string** |  | [optional] [readonly]
 **processorStatus** | **string** | Automagically infer on what state the entity is at the Payment Processor. | [optional] [readonly]
 

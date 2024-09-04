@@ -26,8 +26,8 @@ Name | Type | Description | Notes
 **createdAt** | **\DateTime** |  |
 **updatedAt** | **\DateTime** |  | [optional]
 **providerName** | **string** |  | [optional]
-**providerCreatedAt** | **\DateTime** |  | [optional] [readonly]
-**providerUpdatedAt** | **\DateTime** |  | [optional] [readonly]
+**providerCreatedAt** | **\DateTime** |  | [optional]
+**providerUpdatedAt** | **\DateTime** |  | [optional]
 **total** | **float** |  | [optional] [readonly]
 **totalCharged** | **float** |  | [optional] [readonly]
 **totalFees** | **float** |  | [optional] [readonly]

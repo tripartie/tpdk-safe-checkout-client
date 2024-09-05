@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] [readonly]
 **status** | **string** |  |
 **type** | **string** |  |
 **originalFilename** | **string** |  | [optional]
-**extension** | **string** |  |
+**extension** | **string** |  | [optional]
 **createdAt** | **\DateTime** |  |
 **updatedAt** | **\DateTime** |  |
 **providerName** | **string** |  | [optional]

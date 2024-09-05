@@ -18,7 +18,7 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 | [**apiMeGet()**](UserApi.md#apiMeGet) | **GET** /me | Retrieves a User resource. |
 | [**apiProofOfIdentitiesGetCollection()**](UserApi.md#apiProofOfIdentitiesGetCollection) | **GET** /proof-of-identities | List all submitted PoI |
 | [**apiProofOfIdentitiesIdGet()**](UserApi.md#apiProofOfIdentitiesIdGet) | **GET** /proof-of-identities/{id} | Retrieve a specific PoI |
-| [**apiProofOfIdentitiesIdPatch()**](UserApi.md#apiProofOfIdentitiesIdPatch) | **PATCH** /proof-of-identities/{id} | Upload the document for your PoI slot |
+| [**apiProofOfIdentitiesIddocumentPost()**](UserApi.md#apiProofOfIdentitiesIddocumentPost) | **POST** /proof-of-identities/{id}/document | Upload the document for your PoI slot |
 | [**apiProofOfIdentitiesPost()**](UserApi.md#apiProofOfIdentitiesPost) | **POST** /proof-of-identities | Submit a slot for a PoI |
 | [**apiRegisterPost()**](UserApi.md#apiRegisterPost) | **POST** /register | Customer onboarding |
 | [**apiUsersIdDelete()**](UserApi.md#apiUsersIdDelete) | **DELETE** /users/{id} | Removes the User resource. |
@@ -901,15 +901,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiProofOfIdentitiesIdPatch()`
+## `apiProofOfIdentitiesIddocumentPost()`
 
 ```php
-apiProofOfIdentitiesIdPatch($id, $file): \Tripartie\SafeCheckout\Model\ProofOfIdentityRead
+apiProofOfIdentitiesIddocumentPost($id, $file): \Tripartie\SafeCheckout\Model\ProofOfIdentityRead
 ```
 
 Upload the document for your PoI slot
 
-Updates the ProofOfIdentity resource.
+Creates a ProofOfIdentity resource.
 
 ### Example
 
@@ -934,10 +934,10 @@ $id = 3.4; // float |
 $file = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $result = $apiInstance->apiProofOfIdentitiesIdPatch($id, $file);
+    $result = $apiInstance->apiProofOfIdentitiesIddocumentPost($id, $file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling UserApi->apiProofOfIdentitiesIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling UserApi->apiProofOfIdentitiesIddocumentPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

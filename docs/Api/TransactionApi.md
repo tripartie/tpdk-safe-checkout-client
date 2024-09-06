@@ -213,7 +213,7 @@ try {
 ## `apiTransactionsGetCollection()`
 
 ```php
-apiTransactionsGetCollection($page, $orderCreatedAt, $orderStatus, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $status): \Tripartie\SafeCheckout\Model\TransactionCollectionRead[]
+apiTransactionsGetCollection($page, $orderCreatedAt, $orderUpdatedAt, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $updatedAtBefore, $updatedAtStrictlyBefore, $updatedAtAfter, $updatedAtStrictlyAfter, $status, $status2, $offerTitle): \Tripartie\SafeCheckout\Model\TransactionCollectionRead[]
 ```
 
 List all Transaction
@@ -241,15 +241,21 @@ $apiInstance = new Tripartie\SafeCheckout\Api\TransactionApi(
 );
 $page = 1; // int | The collection page number
 $orderCreatedAt = 'orderCreatedAt_example'; // string | 
-$orderStatus = 'orderStatus_example'; // string | 
+$orderUpdatedAt = 'orderUpdatedAt_example'; // string | 
 $createdAtBefore = 'createdAtBefore_example'; // string | 
 $createdAtStrictlyBefore = 'createdAtStrictlyBefore_example'; // string | 
 $createdAtAfter = 'createdAtAfter_example'; // string | 
 $createdAtStrictlyAfter = 'createdAtStrictlyAfter_example'; // string | 
-$status = CREATED; // string | Filter on a limited subset of status
+$updatedAtBefore = 'updatedAtBefore_example'; // string | 
+$updatedAtStrictlyBefore = 'updatedAtStrictlyBefore_example'; // string | 
+$updatedAtAfter = 'updatedAtAfter_example'; // string | 
+$updatedAtStrictlyAfter = 'updatedAtStrictlyAfter_example'; // string | 
+$status = CREATED; // string | Filter on a specific value of status
+$status2 = array('status_example'); // string[] | Filter on a limited subset of status
+$offerTitle = 'offerTitle_example'; // string | 
 
 try {
-    $result = $apiInstance->apiTransactionsGetCollection($page, $orderCreatedAt, $orderStatus, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $status);
+    $result = $apiInstance->apiTransactionsGetCollection($page, $orderCreatedAt, $orderUpdatedAt, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $updatedAtBefore, $updatedAtStrictlyBefore, $updatedAtAfter, $updatedAtStrictlyAfter, $status, $status2, $offerTitle);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionApi->apiTransactionsGetCollection: ', $e->getMessage(), PHP_EOL;
@@ -262,12 +268,18 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **page** | **int**| The collection page number | [optional] [default to 1] |
 | **orderCreatedAt** | **string**|  | [optional] |
-| **orderStatus** | **string**|  | [optional] |
+| **orderUpdatedAt** | **string**|  | [optional] |
 | **createdAtBefore** | **string**|  | [optional] |
 | **createdAtStrictlyBefore** | **string**|  | [optional] |
 | **createdAtAfter** | **string**|  | [optional] |
 | **createdAtStrictlyAfter** | **string**|  | [optional] |
-| **status** | **string**| Filter on a limited subset of status | [optional] |
+| **updatedAtBefore** | **string**|  | [optional] |
+| **updatedAtStrictlyBefore** | **string**|  | [optional] |
+| **updatedAtAfter** | **string**|  | [optional] |
+| **updatedAtStrictlyAfter** | **string**|  | [optional] |
+| **status** | **string**| Filter on a specific value of status | [optional] |
+| **status2** | [**string[]**](../Model/string.md)| Filter on a limited subset of status | [optional] |
+| **offerTitle** | **string**|  | [optional] |
 
 ### Return type
 

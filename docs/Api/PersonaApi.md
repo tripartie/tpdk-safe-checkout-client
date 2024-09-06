@@ -14,7 +14,7 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 ## `apiPersonasGetCollection()`
 
 ```php
-apiPersonasGetCollection($page, $firstName, $lastName, $email, $email2, $mobilePhoneNumber, $mobilePhoneNumber2, $gender, $orderCreatedAt, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $dateOfBirthBefore, $dateOfBirthStrictlyBefore, $dateOfBirthAfter, $dateOfBirthStrictlyAfter, $metadata): \Tripartie\SafeCheckout\Model\PersonaCollectionRead[]
+apiPersonasGetCollection($page, $firstName, $lastName, $email, $email2, $mobilePhoneNumber, $mobilePhoneNumber2, $gender, $gender2, $orderCreatedAt, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $dateOfBirthBefore, $dateOfBirthStrictlyBefore, $dateOfBirthAfter, $dateOfBirthStrictlyAfter, $metadata): \Tripartie\SafeCheckout\Model\PersonaCollectionRead[]
 ```
 
 Retrieves the collection of Persona resources.
@@ -50,7 +50,8 @@ $email = 'email_example'; // string |
 $email2 = array('email_example'); // string[] | 
 $mobilePhoneNumber = 'mobilePhoneNumber_example'; // string | 
 $mobilePhoneNumber2 = array('mobilePhoneNumber_example'); // string[] | 
-$gender = MALE; // string | Filter on a limited subset of gender
+$gender = MALE; // string | Filter on a specific value of gender
+$gender2 = array('gender_example'); // string[] | Filter on a limited subset of gender
 $orderCreatedAt = 'orderCreatedAt_example'; // string | 
 $createdAtBefore = 'createdAtBefore_example'; // string | 
 $createdAtStrictlyBefore = 'createdAtStrictlyBefore_example'; // string | 
@@ -63,7 +64,7 @@ $dateOfBirthStrictlyAfter = 'dateOfBirthStrictlyAfter_example'; // string |
 $metadata = [External-ID, 1254A]; // string[] | Flattened OrderedMap for metadata. Must be a multiple of two items count. Explicitly set \"null\" for desired value.
 
 try {
-    $result = $apiInstance->apiPersonasGetCollection($page, $firstName, $lastName, $email, $email2, $mobilePhoneNumber, $mobilePhoneNumber2, $gender, $orderCreatedAt, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $dateOfBirthBefore, $dateOfBirthStrictlyBefore, $dateOfBirthAfter, $dateOfBirthStrictlyAfter, $metadata);
+    $result = $apiInstance->apiPersonasGetCollection($page, $firstName, $lastName, $email, $email2, $mobilePhoneNumber, $mobilePhoneNumber2, $gender, $gender2, $orderCreatedAt, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $dateOfBirthBefore, $dateOfBirthStrictlyBefore, $dateOfBirthAfter, $dateOfBirthStrictlyAfter, $metadata);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PersonaApi->apiPersonasGetCollection: ', $e->getMessage(), PHP_EOL;
@@ -81,7 +82,8 @@ try {
 | **email2** | [**string[]**](../Model/string.md)|  | [optional] |
 | **mobilePhoneNumber** | **string**|  | [optional] |
 | **mobilePhoneNumber2** | [**string[]**](../Model/string.md)|  | [optional] |
-| **gender** | **string**| Filter on a limited subset of gender | [optional] |
+| **gender** | **string**| Filter on a specific value of gender | [optional] |
+| **gender2** | [**string[]**](../Model/string.md)| Filter on a limited subset of gender | [optional] |
 | **orderCreatedAt** | **string**|  | [optional] |
 | **createdAtBefore** | **string**|  | [optional] |
 | **createdAtStrictlyBefore** | **string**|  | [optional] |

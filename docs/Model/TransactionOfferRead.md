@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **status** | **string** |  |
 **publicUrl** | **string** | The public URL for your Ad/Offer on your marketplace. | [optional]
 **redirectUrl** | **string** | Fill-in that field IF you intend to redirect your customer instead of using a WebView. | [optional]
+**organization** | [**\Tripartie\SafeCheckout\Model\TransactionOrganizationRead**](TransactionOrganizationRead.md) |  | [optional]
 **seller** | [**\Tripartie\SafeCheckout\Model\TransactionPersonaRead**](TransactionPersonaRead.md) |  |
 **presetBuyer** | [**\Tripartie\SafeCheckout\Model\TransactionPersonaRead**](TransactionPersonaRead.md) |  | [optional]
 **nature** | **string** | This WILL affect the assigned workflow. Choosing service will disable delivery for example. Refer to our technical hub for more information. | [default to 'physical_item']
@@ -24,7 +25,7 @@ Name | Type | Description | Notes
 **eanCode** | **string** |  | [optional]
 **canBeSoldSeparately** | **bool** | Set this flag to false to forbid a potential buyer to acquire less than \&quot;itemCount\&quot; item(s) | [default to true]
 **metadata** | [**\Tripartie\SafeCheckout\Model\TransactionMetadataRead[]**](TransactionMetadataRead.md) |  | [optional]
-**medias** | **string[]** |  |
+**medias** | [**\Tripartie\SafeCheckout\Model\TransactionMediaRead[]**](TransactionMediaRead.md) |  |
 **createdAt** | **\DateTime** |  | [optional] [readonly]
 **updatedAt** | **\DateTime** |  | [optional] [readonly]
 

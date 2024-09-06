@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ulid** | **string** |  |
 **status** | **string** |  |
 **publicUrl** | **string** | The public URL for your Ad/Offer on your marketplace. | [optional]
+**organization** | [**\Tripartie\SafeCheckout\Model\TransactionOrganizationCollectionRead**](TransactionOrganizationCollectionRead.md) |  | [optional]
 **seller** | [**\Tripartie\SafeCheckout\Model\TransactionPersonaCollectionRead**](TransactionPersonaCollectionRead.md) |  |
 **presetBuyer** | [**\Tripartie\SafeCheckout\Model\TransactionPersonaCollectionRead**](TransactionPersonaCollectionRead.md) |  | [optional]
 **nature** | **string** | This WILL affect the assigned workflow. Choosing service will disable delivery for example. Refer to our technical hub for more information. | [default to 'physical_item']
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 **currencyCode** | **string** |  | [default to 'EUR']
 **itemCount** | **int** |  | [optional] [default to 1]
 **condition** | **string** |  | [optional] [default to 'USED']
-**medias** | **string[]** |  |
+**medias** | [**\Tripartie\SafeCheckout\Model\TransactionMediaCollectionRead[]**](TransactionMediaCollectionRead.md) |  |
 **createdAt** | **\DateTime** |  | [optional] [readonly]
 **updatedAt** | **\DateTime** |  | [optional] [readonly]
 

@@ -17,7 +17,7 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 ## `apiOffersGetCollection()`
 
 ```php
-apiOffersGetCollection($page, $title, $publicUrl, $publicUrl2, $unitPrice, $unitPrice2, $itemCount, $itemCount2, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $metadata, $offerMetadata, $sellerMetadata, $nature, $condition, $status, $shippingAllowed): \Tripartie\SafeCheckout\Model\OfferCollectionRead[]
+apiOffersGetCollection($page, $title, $publicUrl, $publicUrl2, $unitPrice, $unitPrice2, $itemCount, $itemCount2, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $metadata, $offerMetadata, $sellerMetadata, $nature, $nature2, $condition, $condition2, $status, $status2, $shippingAllowed): \Tripartie\SafeCheckout\Model\OfferCollectionRead[]
 ```
 
 Search amongst Offers
@@ -61,13 +61,16 @@ $createdAtStrictlyAfter = 'createdAtStrictlyAfter_example'; // string |
 $metadata = ["External-ID","1254A"]; // string[] | Flattened OrderedMap for metadata. Must be a multiple of two items count. Explicitly set \"null\" for desired value.
 $offerMetadata = ["External-ID","1254A"]; // string[] | Flattened OrderedMap for offer.metadata. Must be a multiple of two items count. Explicitly set \"null\" for desired value.
 $sellerMetadata = ["External-ID","1254A"]; // string[] | Flattened OrderedMap for seller.metadata. Must be a multiple of two items count. Explicitly set \"null\" for desired value.
-$nature = service; // string | Filter on a limited subset of nature
-$condition = NEW; // string | Filter on a limited subset of condition
-$status = issued; // string | Filter on a limited subset of status
+$nature = service; // string | Filter on a specific value of nature
+$nature2 = array('nature_example'); // string[] | Filter on a limited subset of nature
+$condition = NEW; // string | Filter on a specific value of condition
+$condition2 = array('condition_example'); // string[] | Filter on a limited subset of condition
+$status = issued; // string | Filter on a specific value of status
+$status2 = array('status_example'); // string[] | Filter on a limited subset of status
 $shippingAllowed = True; // bool | 
 
 try {
-    $result = $apiInstance->apiOffersGetCollection($page, $title, $publicUrl, $publicUrl2, $unitPrice, $unitPrice2, $itemCount, $itemCount2, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $metadata, $offerMetadata, $sellerMetadata, $nature, $condition, $status, $shippingAllowed);
+    $result = $apiInstance->apiOffersGetCollection($page, $title, $publicUrl, $publicUrl2, $unitPrice, $unitPrice2, $itemCount, $itemCount2, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $metadata, $offerMetadata, $sellerMetadata, $nature, $nature2, $condition, $condition2, $status, $status2, $shippingAllowed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SafeCheckoutApi->apiOffersGetCollection: ', $e->getMessage(), PHP_EOL;
@@ -93,9 +96,12 @@ try {
 | **metadata** | [**string[]**](../Model/string.md)| Flattened OrderedMap for metadata. Must be a multiple of two items count. Explicitly set \&quot;null\&quot; for desired value. | [optional] |
 | **offerMetadata** | [**string[]**](../Model/string.md)| Flattened OrderedMap for offer.metadata. Must be a multiple of two items count. Explicitly set \&quot;null\&quot; for desired value. | [optional] |
 | **sellerMetadata** | [**string[]**](../Model/string.md)| Flattened OrderedMap for seller.metadata. Must be a multiple of two items count. Explicitly set \&quot;null\&quot; for desired value. | [optional] |
-| **nature** | **string**| Filter on a limited subset of nature | [optional] |
-| **condition** | **string**| Filter on a limited subset of condition | [optional] |
-| **status** | **string**| Filter on a limited subset of status | [optional] |
+| **nature** | **string**| Filter on a specific value of nature | [optional] |
+| **nature2** | [**string[]**](../Model/string.md)| Filter on a limited subset of nature | [optional] |
+| **condition** | **string**| Filter on a specific value of condition | [optional] |
+| **condition2** | [**string[]**](../Model/string.md)| Filter on a limited subset of condition | [optional] |
+| **status** | **string**| Filter on a specific value of status | [optional] |
+| **status2** | [**string[]**](../Model/string.md)| Filter on a limited subset of status | [optional] |
 | **shippingAllowed** | **bool**|  | [optional] |
 
 ### Return type
@@ -454,6 +460,11 @@ Creates a Media resource.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 // Configure OAuth2 access token for authorization: oauth
 $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -488,7 +499,7 @@ try {
 
 ### Authorization
 
-[oauth](../../README.md#oauth)
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

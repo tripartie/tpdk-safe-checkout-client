@@ -10,8 +10,7 @@ Name | Type | Description | Notes
 **buyerMessage** | **string** | Attach a note. Only the buyer can exercise this right. At the creation. | [optional]
 **buyer** | [**\Tripartie\SafeCheckout\Model\TransactionPersonaCollectionRead**](TransactionPersonaCollectionRead.md) |  |
 **status** | **string** |  | [optional]
-**fees** | **float** |  | [optional]
-**supplementalFees** | **float** |  | [optional]
+**supplementalFees** | **float** | usually set if the weight was underestimated and shipping carrier billed us an extra. | [optional]
 **providerName** | **string** |  | [optional]
 **providerCreatedAt** | **\DateTime** |  | [optional]
 **providerUpdatedAt** | **\DateTime** |  | [optional]

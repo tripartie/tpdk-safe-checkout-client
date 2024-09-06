@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **captcha** | **string** |  | [optional]
-**offer** | **string** |  |
 **quote** | **string** |  |
 **buyerMessage** | **string** | Attach a note. Only the buyer can exercise this right. At the creation. | [optional]
 **card** | **string** |  | [optional]

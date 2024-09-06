@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] [readonly]
 **primaryAccountNumber** | **string** |  | [optional]
 **expireAt** | **\DateTime** |  |
 **currency** | **string** |  | [optional]

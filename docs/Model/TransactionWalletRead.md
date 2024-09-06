@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**balance** | **float** |  | [optional]
+**currency** | **string** |  |
+**updatedAt** | **\DateTime** |  |
 **providerName** | **string** |  | [optional]
 **providerCreatedAt** | **\DateTime** |  | [optional]
 **providerUpdatedAt** | **\DateTime** |  | [optional]

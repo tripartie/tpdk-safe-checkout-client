@@ -13,6 +13,5 @@ Name | Type | Description | Notes
 **buildingName** | **string** |  | [optional]
 **buildingFloor** | **string** |  | [optional]
 **gateOrPortalOrInboxCode** | **string** |  | [optional]
-**formattedAddress** | **string** |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

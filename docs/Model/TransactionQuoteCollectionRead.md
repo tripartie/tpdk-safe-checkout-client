@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **shippingFees** | **float** |  | [optional]
 **thirdPartyRecipientFirstName** | **string** |  | [optional]
 **thirdPartyRecipientLastName** | **string** |  | [optional]
-**thirdPartyRecipientAddress** | **object** |  | [optional]
 **createdAt** | **\DateTime** |  |
 **expireAt** | **\DateTime** |  |
 **iri** | **string** |  | [optional] [readonly]

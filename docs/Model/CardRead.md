@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] [readonly]
 **primaryAccountNumber** | **string** |  | [optional]
-**expireAt** | **\DateTime** |  |
+**expireAt** | **\DateTime** |  | [optional]
 **currency** | **string** |  | [optional]
 **countryCode** | **string** |  | [optional]
 **brand** | **string** |  | [optional]
 **createdAt** | **\DateTime** |  |
-**updatedAt** | **\DateTime** |  |
+**updatedAt** | **\DateTime** |  | [optional]
 **metadata** | [**\Tripartie\SafeCheckout\Model\CardMetadataRead[]**](CardMetadataRead.md) |  | [optional]
 **providerName** | **string** |  | [optional]
 **providerCreatedAt** | **\DateTime** |  | [optional]

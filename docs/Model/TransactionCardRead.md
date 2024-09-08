@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**primaryAccountNumber** | **string** |  | [optional]
+**brand** | **string** |  | [optional]
 **providerName** | **string** |  | [optional]
 **providerCreatedAt** | **\DateTime** |  | [optional]
 **providerUpdatedAt** | **\DateTime** |  | [optional]

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **persona** | **string** |  | [optional]
 **offer** | **string** |  | [optional]
 **card** | **string** |  | [optional]
+**transaction** | **string** |  | [optional]
 **key** | **string** |  | [optional]
 **value** | **string** |  | [optional]
 

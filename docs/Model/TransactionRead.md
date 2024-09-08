@@ -10,8 +10,7 @@ Name | Type | Description | Notes
 **buyerMessage** | **string** | Attach a note. Only the buyer can exercise this right. At the creation. | [optional]
 **buyer** | [**\Tripartie\SafeCheckout\Model\TransactionPersonaRead**](TransactionPersonaRead.md) |  |
 **status** | **string** |  | [optional]
-**fees** | **float** |  | [optional]
-**supplementalFees** | **float** |  | [optional]
+**supplementalFees** | **float** | usually set if the weight was underestimated and shipping carrier billed us an extra. | [optional]
 **card** | [**\Tripartie\SafeCheckout\Model\TransactionCardRead**](TransactionCardRead.md) |  | [optional]
 **escrow** | [**\Tripartie\SafeCheckout\Model\TransactionWalletRead**](TransactionWalletRead.md) |  | [optional]
 **remotePreAuthorizationId** | **string** |  | [optional]
@@ -25,6 +24,7 @@ Name | Type | Description | Notes
 **parcels** | [**\Tripartie\SafeCheckout\Model\TransactionParcelRead[]**](TransactionParcelRead.md) |  | [optional]
 **createdAt** | **\DateTime** |  |
 **updatedAt** | **\DateTime** |  | [optional]
+**metadata** | [**\Tripartie\SafeCheckout\Model\TransactionMetadataRead[]**](TransactionMetadataRead.md) |  | [optional]
 **providerName** | **string** |  | [optional]
 **providerCreatedAt** | **\DateTime** |  | [optional]
 **providerUpdatedAt** | **\DateTime** |  | [optional]

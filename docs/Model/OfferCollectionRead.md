@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **ulid** | **string** |  |
 **status** | **string** |  |
 **publicUrl** | **string** | The public URL for your Ad/Offer on your marketplace. | [optional]
+**url** | **string** |  | [readonly]
+**organization** | [**\Tripartie\SafeCheckout\Model\OfferOrganizationCollectionRead**](OfferOrganizationCollectionRead.md) |  | [optional]
 **seller** | **string** |  |
 **presetBuyer** | **string** | Limit the offer to a particular buyer. Useful if the offer was issued from an auction for instance. | [optional]
 **nature** | **string** | This WILL affect the assigned workflow. Choosing service will disable delivery for example. Refer to our technical hub for more information. | [default to 'physical_item']

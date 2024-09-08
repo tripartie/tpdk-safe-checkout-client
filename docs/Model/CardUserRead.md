@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] [readonly]
 **primaryAccountNumber** | **string** |  | [optional]
-**expireAt** | **\DateTime** |  |
+**expireAt** | **\DateTime** |  | [optional]
 **currency** | **string** |  | [optional]
 **countryCode** | **string** |  | [optional]
 **brand** | **string** |  | [optional]
 **ephemeral** | **bool** |  | [optional] [default to true]
 **createdAt** | **\DateTime** |  |
-**updatedAt** | **\DateTime** |  |
+**updatedAt** | **\DateTime** |  | [optional]
 **providerName** | **string** |  | [optional]
 **providerCreatedAt** | **\DateTime** |  | [optional]
 **providerUpdatedAt** | **\DateTime** |  | [optional]

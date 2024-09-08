@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **shippingFees** | **float** |  | [optional]
 **thirdPartyRecipientFirstName** | **string** |  | [optional]
 **thirdPartyRecipientLastName** | **string** |  | [optional]
-**thirdPartyRecipientAddress** | **object** |  | [optional]
+**thirdPartyRecipientAddress** | [**\Tripartie\SafeCheckout\Model\TransactionAddressRead**](TransactionAddressRead.md) |  | [optional]
 **createdAt** | **\DateTime** |  |
 **expireAt** | **\DateTime** |  |
 **iri** | **string** |  | [optional] [readonly]

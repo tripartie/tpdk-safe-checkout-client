@@ -217,7 +217,7 @@ try {
 ## `apiWebhookSubscriptionsGetCollection()`
 
 ```php
-apiWebhookSubscriptionsGetCollection($page, $event): \Tripartie\SafeCheckout\Model\WebhookSubscriptionRead[]
+apiWebhookSubscriptionsGetCollection($page, $event, $event2): \Tripartie\SafeCheckout\Model\WebhookSubscriptionRead[]
 ```
 
 Retrieves the collection of WebhookSubscription resources.
@@ -247,10 +247,11 @@ $apiInstance = new Tripartie\SafeCheckout\Api\WebhookApi(
     $config
 );
 $page = 1; // int | The collection page number
-$event = offer.transaction.authorized; // string | Filter on a limited subset of event
+$event = offer.transaction.authorized; // string | Filter on a specific value of event
+$event2 = array('event_example'); // string[] | Filter on a limited subset of event
 
 try {
-    $result = $apiInstance->apiWebhookSubscriptionsGetCollection($page, $event);
+    $result = $apiInstance->apiWebhookSubscriptionsGetCollection($page, $event, $event2);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->apiWebhookSubscriptionsGetCollection: ', $e->getMessage(), PHP_EOL;
@@ -262,7 +263,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **page** | **int**| The collection page number | [optional] [default to 1] |
-| **event** | **string**| Filter on a limited subset of event | [optional] |
+| **event** | **string**| Filter on a specific value of event | [optional] |
+| **event2** | [**string[]**](../Model/string.md)| Filter on a limited subset of event | [optional] |
 
 ### Return type
 

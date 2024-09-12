@@ -10,12 +10,12 @@ Name | Type | Description | Notes
 **organization** | [**\Tripartie\SafeCheckout\Model\TransactionOrganizationCollectionRead**](TransactionOrganizationCollectionRead.md) |  | [optional]
 **seller** | [**\Tripartie\SafeCheckout\Model\TransactionPersonaCollectionRead**](TransactionPersonaCollectionRead.md) |  |
 **presetBuyer** | [**\Tripartie\SafeCheckout\Model\TransactionPersonaCollectionRead**](TransactionPersonaCollectionRead.md) |  | [optional]
-**nature** | **string** | This WILL affect the assigned workflow. Choosing service will disable delivery for example. Refer to our technical hub for more information. | [default to 'physical_item']
+**nature** | **string** | This WILL affect the assigned workflow. Choosing service will disable delivery for example. Refer to our technical hub for more information. | [optional] [default to 'physical_item']
 **title** | **string** |  | [optional]
 **unitPrice** | **float** |  | [optional]
 **minNegotiableUnitPrice** | **float** |  | [optional]
 **allowToNegotiateUnitPrice** | **bool** |  | [optional]
-**currencyCode** | **string** |  | [default to 'EUR']
+**currencyCode** | **string** |  | [optional] [default to 'EUR']
 **itemCount** | **int** |  | [optional] [default to 1]
 **condition** | **string** |  | [optional] [default to 'USED']
 **medias** | [**\Tripartie\SafeCheckout\Model\TransactionMediaCollectionRead[]**](TransactionMediaCollectionRead.md) |  |

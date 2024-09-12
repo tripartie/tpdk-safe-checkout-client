@@ -16,6 +16,7 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 | [**apiUsersIddisablePatch()**](AdminApi.md#apiUsersIddisablePatch) | **PATCH** /users/{id}/disable | Updates the User resource. |
 | [**apiUsersIdenablePatch()**](AdminApi.md#apiUsersIdenablePatch) | **PATCH** /users/{id}/enable | Updates the User resource. |
 | [**authenticationPost()**](AdminApi.md#authenticationPost) | **POST** /authentication | User authentication |
+| [**statisticsPost()**](AdminApi.md#statisticsPost) | **POST** /statistics | Statistics Generator |
 
 
 ## `apiApiClientsGetCollection()`
@@ -767,6 +768,71 @@ try {
 ### Return type
 
 [**\Tripartie\SafeCheckout\Model\UserJwtCreated**](../Model/UserJwtCreated.md)
+
+### Authorization
+
+[jwtPersonalKey](../../README.md#jwtPersonalKey), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `statisticsPost()`
+
+```php
+statisticsPost($statisticWrite): \Tripartie\SafeCheckout\Model\StatisticRead
+```
+
+Statistics Generator
+
+Generate statistics based on a set of parameters.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: jwtPersonalKey
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Tripartie\SafeCheckout\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Tripartie\SafeCheckout\Api\AdminApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$statisticWrite = new \Tripartie\SafeCheckout\Model\StatisticWrite(); // \Tripartie\SafeCheckout\Model\StatisticWrite | 
+
+try {
+    $result = $apiInstance->statisticsPost($statisticWrite);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AdminApi->statisticsPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **statisticWrite** | [**\Tripartie\SafeCheckout\Model\StatisticWrite**](../Model/StatisticWrite.md)|  | [optional] |
+
+### Return type
+
+[**\Tripartie\SafeCheckout\Model\StatisticRead**](../Model/StatisticRead.md)
 
 ### Authorization
 

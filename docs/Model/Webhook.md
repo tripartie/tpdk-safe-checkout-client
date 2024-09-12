@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [optional]
-**event** | **string** |  | [optional]
-**objectId** | **string** |  | [optional]
-**iri** | **string** |  | [optional]
-**occurredAt** | **\DateTime** |  | [optional]
-**object** | [**\Tripartie\SafeCheckout\Model\WebhookObject**](WebhookObject.md) |  | [optional]
+**id** | **int** |  |
+**event** | **string** |  |
+**objectId** | **string** |  |
+**iri** | **string** |  |
+**occurredAt** | **\DateTime** |  |
+**object** | [**\Tripartie\SafeCheckout\Model\WebhookObject**](WebhookObject.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -15,8 +15,8 @@ All URIs are relative to https://staging-api.tripartie.app, except if the operat
 | [**apiUsersIdGet()**](AdminApi.md#apiUsersIdGet) | **GET** /users/{id} | Retrieves a User resource. |
 | [**apiUsersIddisablePatch()**](AdminApi.md#apiUsersIddisablePatch) | **PATCH** /users/{id}/disable | Updates the User resource. |
 | [**apiUsersIdenablePatch()**](AdminApi.md#apiUsersIdenablePatch) | **PATCH** /users/{id}/enable | Updates the User resource. |
-| [**authenticationPost()**](AdminApi.md#authenticationPost) | **POST** /authentication | User authentication |
-| [**statisticsPost()**](AdminApi.md#statisticsPost) | **POST** /statistics | Statistics Generator |
+| [**authenticationPost_0()**](AdminApi.md#authenticationPost_0) | **POST** /authentication | User authentication |
+| [**statisticsPost_0()**](AdminApi.md#statisticsPost_0) | **POST** /statistics | Statistics Generator |
 
 
 ## `apiApiClientsGetCollection()`
@@ -468,7 +468,7 @@ try {
 ## `apiUsersGetCollection()`
 
 ```php
-apiUsersGetCollection($page): \Tripartie\SafeCheckout\Model\UserCollectionRead[]
+apiUsersGetCollection($page, $existsOrganization, $existsIdentityVerifiedAt, $existsMainAddress, $orderCreatedAt, $email, $email2, $intlPhoneNumber, $firstName, $lastName, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $identityVerifiedAtBefore, $identityVerifiedAtStrictlyBefore, $identityVerifiedAtAfter, $identityVerifiedAtStrictlyAfter, $updatedAtBefore, $updatedAtStrictlyBefore, $updatedAtAfter, $updatedAtStrictlyAfter, $birthdayBefore, $birthdayStrictlyBefore, $birthdayAfter, $birthdayStrictlyAfter, $totpEnabled, $lockdown): \Tripartie\SafeCheckout\Model\UserCollectionRead[]
 ```
 
 Retrieves the collection of User resources.
@@ -495,9 +495,36 @@ $apiInstance = new Tripartie\SafeCheckout\Api\AdminApi(
     $config
 );
 $page = 1; // int | The collection page number
+$existsOrganization = True; // bool | 
+$existsIdentityVerifiedAt = True; // bool | 
+$existsMainAddress = True; // bool | 
+$orderCreatedAt = 'orderCreatedAt_example'; // string | 
+$email = 'email_example'; // string | 
+$email2 = array('email_example'); // string[] | 
+$intlPhoneNumber = 'intlPhoneNumber_example'; // string | 
+$firstName = 'firstName_example'; // string | 
+$lastName = 'lastName_example'; // string | 
+$createdAtBefore = 'createdAtBefore_example'; // string | 
+$createdAtStrictlyBefore = 'createdAtStrictlyBefore_example'; // string | 
+$createdAtAfter = 'createdAtAfter_example'; // string | 
+$createdAtStrictlyAfter = 'createdAtStrictlyAfter_example'; // string | 
+$identityVerifiedAtBefore = 'identityVerifiedAtBefore_example'; // string | 
+$identityVerifiedAtStrictlyBefore = 'identityVerifiedAtStrictlyBefore_example'; // string | 
+$identityVerifiedAtAfter = 'identityVerifiedAtAfter_example'; // string | 
+$identityVerifiedAtStrictlyAfter = 'identityVerifiedAtStrictlyAfter_example'; // string | 
+$updatedAtBefore = 'updatedAtBefore_example'; // string | 
+$updatedAtStrictlyBefore = 'updatedAtStrictlyBefore_example'; // string | 
+$updatedAtAfter = 'updatedAtAfter_example'; // string | 
+$updatedAtStrictlyAfter = 'updatedAtStrictlyAfter_example'; // string | 
+$birthdayBefore = 'birthdayBefore_example'; // string | 
+$birthdayStrictlyBefore = 'birthdayStrictlyBefore_example'; // string | 
+$birthdayAfter = 'birthdayAfter_example'; // string | 
+$birthdayStrictlyAfter = 'birthdayStrictlyAfter_example'; // string | 
+$totpEnabled = True; // bool | 
+$lockdown = True; // bool | 
 
 try {
-    $result = $apiInstance->apiUsersGetCollection($page);
+    $result = $apiInstance->apiUsersGetCollection($page, $existsOrganization, $existsIdentityVerifiedAt, $existsMainAddress, $orderCreatedAt, $email, $email2, $intlPhoneNumber, $firstName, $lastName, $createdAtBefore, $createdAtStrictlyBefore, $createdAtAfter, $createdAtStrictlyAfter, $identityVerifiedAtBefore, $identityVerifiedAtStrictlyBefore, $identityVerifiedAtAfter, $identityVerifiedAtStrictlyAfter, $updatedAtBefore, $updatedAtStrictlyBefore, $updatedAtAfter, $updatedAtStrictlyAfter, $birthdayBefore, $birthdayStrictlyBefore, $birthdayAfter, $birthdayStrictlyAfter, $totpEnabled, $lockdown);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AdminApi->apiUsersGetCollection: ', $e->getMessage(), PHP_EOL;
@@ -509,6 +536,33 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **page** | **int**| The collection page number | [optional] [default to 1] |
+| **existsOrganization** | **bool**|  | [optional] |
+| **existsIdentityVerifiedAt** | **bool**|  | [optional] |
+| **existsMainAddress** | **bool**|  | [optional] |
+| **orderCreatedAt** | **string**|  | [optional] |
+| **email** | **string**|  | [optional] |
+| **email2** | [**string[]**](../Model/string.md)|  | [optional] |
+| **intlPhoneNumber** | **string**|  | [optional] |
+| **firstName** | **string**|  | [optional] |
+| **lastName** | **string**|  | [optional] |
+| **createdAtBefore** | **string**|  | [optional] |
+| **createdAtStrictlyBefore** | **string**|  | [optional] |
+| **createdAtAfter** | **string**|  | [optional] |
+| **createdAtStrictlyAfter** | **string**|  | [optional] |
+| **identityVerifiedAtBefore** | **string**|  | [optional] |
+| **identityVerifiedAtStrictlyBefore** | **string**|  | [optional] |
+| **identityVerifiedAtAfter** | **string**|  | [optional] |
+| **identityVerifiedAtStrictlyAfter** | **string**|  | [optional] |
+| **updatedAtBefore** | **string**|  | [optional] |
+| **updatedAtStrictlyBefore** | **string**|  | [optional] |
+| **updatedAtAfter** | **string**|  | [optional] |
+| **updatedAtStrictlyAfter** | **string**|  | [optional] |
+| **birthdayBefore** | **string**|  | [optional] |
+| **birthdayStrictlyBefore** | **string**|  | [optional] |
+| **birthdayAfter** | **string**|  | [optional] |
+| **birthdayStrictlyAfter** | **string**|  | [optional] |
+| **totpEnabled** | **bool**|  | [optional] |
+| **lockdown** | **bool**|  | [optional] |
 
 ### Return type
 
@@ -717,10 +771,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `authenticationPost()`
+## `authenticationPost_0()`
 
 ```php
-authenticationPost($userJwtWrite): \Tripartie\SafeCheckout\Model\UserJwtCreated
+authenticationPost_0($userJwtWrite): \Tripartie\SafeCheckout\Model\UserJwtCreated
 ```
 
 User authentication
@@ -752,10 +806,10 @@ $apiInstance = new Tripartie\SafeCheckout\Api\AdminApi(
 $userJwtWrite = new \Tripartie\SafeCheckout\Model\UserJwtWrite(); // \Tripartie\SafeCheckout\Model\UserJwtWrite | 
 
 try {
-    $result = $apiInstance->authenticationPost($userJwtWrite);
+    $result = $apiInstance->authenticationPost_0($userJwtWrite);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AdminApi->authenticationPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdminApi->authenticationPost_0: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -782,10 +836,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `statisticsPost()`
+## `statisticsPost_0()`
 
 ```php
-statisticsPost($statisticWrite): \Tripartie\SafeCheckout\Model\StatisticRead
+statisticsPost_0($statisticWrite): \Tripartie\SafeCheckout\Model\StatisticRead
 ```
 
 Statistics Generator
@@ -817,10 +871,10 @@ $apiInstance = new Tripartie\SafeCheckout\Api\AdminApi(
 $statisticWrite = new \Tripartie\SafeCheckout\Model\StatisticWrite(); // \Tripartie\SafeCheckout\Model\StatisticWrite | 
 
 try {
-    $result = $apiInstance->statisticsPost($statisticWrite);
+    $result = $apiInstance->statisticsPost_0($statisticWrite);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AdminApi->statisticsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdminApi->statisticsPost_0: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

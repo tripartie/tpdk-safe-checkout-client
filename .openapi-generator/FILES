@@ -49,6 +49,7 @@ docs/Model/OfferMetadataIndependentWrite.md
 docs/Model/OfferMetadataUpdate.md
 docs/Model/OfferOrganizationCollectionRead.md
 docs/Model/OfferOrganizationRead.md
+docs/Model/OfferPersonaCollectionRead.md
 docs/Model/OfferPersonaIndependentWrite.md
 docs/Model/OfferPersonaRead.md
 docs/Model/OfferPostCreationRead.md
@@ -204,6 +205,7 @@ lib/Model/OfferMetadataIndependentWrite.php
 lib/Model/OfferMetadataUpdate.php
 lib/Model/OfferOrganizationCollectionRead.php
 lib/Model/OfferOrganizationRead.php
+lib/Model/OfferPersonaCollectionRead.php
 lib/Model/OfferPersonaIndependentWrite.php
 lib/Model/OfferPersonaRead.php
 lib/Model/OfferPostCreationRead.php
@@ -355,6 +357,7 @@ test/Model/OfferMetadataIndependentWriteTest.php
 test/Model/OfferMetadataUpdateTest.php
 test/Model/OfferOrganizationCollectionReadTest.php
 test/Model/OfferOrganizationReadTest.php
+test/Model/OfferPersonaCollectionReadTest.php
 test/Model/OfferPersonaIndependentWriteTest.php
 test/Model/OfferPersonaReadTest.php
 test/Model/OfferPostCreationReadTest.php

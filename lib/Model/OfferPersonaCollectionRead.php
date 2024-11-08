@@ -1,6 +1,6 @@
 <?php
 /**
- * TransactionAddressRead
+ * OfferPersonaCollectionRead
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Tripartie\SafeCheckout\ObjectSerializer;
 
 /**
- * TransactionAddressRead Class Doc Comment
+ * OfferPersonaCollectionRead Class Doc Comment
  *
  * @category Class
  * @description 
@@ -42,7 +42,7 @@ use \Tripartie\SafeCheckout\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerializable
+class OfferPersonaCollectionRead implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Transaction-Address-Read';
+    protected static $openAPIModelName = 'Offer-Persona-CollectionRead';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,15 +59,11 @@ class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'countryCode' => 'string',
-        'zipCode' => 'string',
-        'cityName' => 'string',
-        'firstLine' => 'string',
-        'secondLine' => 'string',
-        'buildingName' => 'string',
-        'buildingFloor' => 'string',
-        'gateOrPortalOrInboxCode' => 'string',
-        'formattedAddress' => 'string'
+        'id' => 'int',
+        'firstName' => 'string',
+        'lastName' => 'string',
+        'registered' => 'bool',
+        'verified' => 'bool'
     ];
 
     /**
@@ -78,15 +74,11 @@ class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'countryCode' => null,
-        'zipCode' => null,
-        'cityName' => null,
-        'firstLine' => null,
-        'secondLine' => null,
-        'buildingName' => null,
-        'buildingFloor' => null,
-        'gateOrPortalOrInboxCode' => null,
-        'formattedAddress' => null
+        'id' => null,
+        'firstName' => null,
+        'lastName' => null,
+        'registered' => null,
+        'verified' => null
     ];
 
     /**
@@ -95,15 +87,11 @@ class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'countryCode' => false,
-        'zipCode' => false,
-        'cityName' => false,
-        'firstLine' => false,
-        'secondLine' => true,
-        'buildingName' => true,
-        'buildingFloor' => true,
-        'gateOrPortalOrInboxCode' => true,
-        'formattedAddress' => false
+        'id' => false,
+        'firstName' => false,
+        'lastName' => false,
+        'registered' => false,
+        'verified' => false
     ];
 
     /**
@@ -192,15 +180,11 @@ class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'countryCode' => 'countryCode',
-        'zipCode' => 'zipCode',
-        'cityName' => 'cityName',
-        'firstLine' => 'firstLine',
-        'secondLine' => 'secondLine',
-        'buildingName' => 'buildingName',
-        'buildingFloor' => 'buildingFloor',
-        'gateOrPortalOrInboxCode' => 'gateOrPortalOrInboxCode',
-        'formattedAddress' => 'formattedAddress'
+        'id' => 'id',
+        'firstName' => 'firstName',
+        'lastName' => 'lastName',
+        'registered' => 'registered',
+        'verified' => 'verified'
     ];
 
     /**
@@ -209,15 +193,11 @@ class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'countryCode' => 'setCountryCode',
-        'zipCode' => 'setZipCode',
-        'cityName' => 'setCityName',
-        'firstLine' => 'setFirstLine',
-        'secondLine' => 'setSecondLine',
-        'buildingName' => 'setBuildingName',
-        'buildingFloor' => 'setBuildingFloor',
-        'gateOrPortalOrInboxCode' => 'setGateOrPortalOrInboxCode',
-        'formattedAddress' => 'setFormattedAddress'
+        'id' => 'setId',
+        'firstName' => 'setFirstName',
+        'lastName' => 'setLastName',
+        'registered' => 'setRegistered',
+        'verified' => 'setVerified'
     ];
 
     /**
@@ -226,15 +206,11 @@ class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'countryCode' => 'getCountryCode',
-        'zipCode' => 'getZipCode',
-        'cityName' => 'getCityName',
-        'firstLine' => 'getFirstLine',
-        'secondLine' => 'getSecondLine',
-        'buildingName' => 'getBuildingName',
-        'buildingFloor' => 'getBuildingFloor',
-        'gateOrPortalOrInboxCode' => 'getGateOrPortalOrInboxCode',
-        'formattedAddress' => 'getFormattedAddress'
+        'id' => 'getId',
+        'firstName' => 'getFirstName',
+        'lastName' => 'getLastName',
+        'registered' => 'getRegistered',
+        'verified' => 'getVerified'
     ];
 
     /**
@@ -294,15 +270,11 @@ class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('countryCode', $data ?? [], null);
-        $this->setIfExists('zipCode', $data ?? [], null);
-        $this->setIfExists('cityName', $data ?? [], null);
-        $this->setIfExists('firstLine', $data ?? [], null);
-        $this->setIfExists('secondLine', $data ?? [], null);
-        $this->setIfExists('buildingName', $data ?? [], null);
-        $this->setIfExists('buildingFloor', $data ?? [], null);
-        $this->setIfExists('gateOrPortalOrInboxCode', $data ?? [], null);
-        $this->setIfExists('formattedAddress', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('firstName', $data ?? [], null);
+        $this->setIfExists('lastName', $data ?? [], null);
+        $this->setIfExists('registered', $data ?? [], null);
+        $this->setIfExists('verified', $data ?? [], null);
     }
 
     /**
@@ -332,10 +304,6 @@ class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['countryCode']) && (mb_strlen($this->container['countryCode']) > 3)) {
-            $invalidProperties[] = "invalid value for 'countryCode', the character length must be smaller than or equal to 3.";
-        }
-
         return $invalidProperties;
     }
 
@@ -352,276 +320,136 @@ class TransactionAddressRead implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets countryCode
+     * Gets id
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getCountryCode()
+    public function getId()
     {
-        return $this->container['countryCode'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets countryCode
+     * Sets id
      *
-     * @param string|null $countryCode countryCode
+     * @param int|null $id id
      *
      * @return self
      */
-    public function setCountryCode($countryCode)
+    public function setId($id)
     {
-        if (is_null($countryCode)) {
-            throw new \InvalidArgumentException('non-nullable countryCode cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        if ((mb_strlen($countryCode) > 3)) {
-            throw new \InvalidArgumentException('invalid length for $countryCode when calling TransactionAddressRead., must be smaller than or equal to 3.');
-        }
-
-        $this->container['countryCode'] = $countryCode;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets zipCode
+     * Gets firstName
      *
      * @return string|null
      */
-    public function getZipCode()
+    public function getFirstName()
     {
-        return $this->container['zipCode'];
+        return $this->container['firstName'];
     }
 
     /**
-     * Sets zipCode
+     * Sets firstName
      *
-     * @param string|null $zipCode zipCode
+     * @param string|null $firstName firstName
      *
      * @return self
      */
-    public function setZipCode($zipCode)
+    public function setFirstName($firstName)
     {
-        if (is_null($zipCode)) {
-            throw new \InvalidArgumentException('non-nullable zipCode cannot be null');
+        if (is_null($firstName)) {
+            throw new \InvalidArgumentException('non-nullable firstName cannot be null');
         }
-        $this->container['zipCode'] = $zipCode;
+        $this->container['firstName'] = $firstName;
 
         return $this;
     }
 
     /**
-     * Gets cityName
+     * Gets lastName
      *
      * @return string|null
      */
-    public function getCityName()
+    public function getLastName()
     {
-        return $this->container['cityName'];
+        return $this->container['lastName'];
     }
 
     /**
-     * Sets cityName
+     * Sets lastName
      *
-     * @param string|null $cityName cityName
+     * @param string|null $lastName lastName
      *
      * @return self
      */
-    public function setCityName($cityName)
+    public function setLastName($lastName)
     {
-        if (is_null($cityName)) {
-            throw new \InvalidArgumentException('non-nullable cityName cannot be null');
+        if (is_null($lastName)) {
+            throw new \InvalidArgumentException('non-nullable lastName cannot be null');
         }
-        $this->container['cityName'] = $cityName;
+        $this->container['lastName'] = $lastName;
 
         return $this;
     }
 
     /**
-     * Gets firstLine
+     * Gets registered
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getFirstLine()
+    public function getRegistered()
     {
-        return $this->container['firstLine'];
+        return $this->container['registered'];
     }
 
     /**
-     * Sets firstLine
+     * Sets registered
      *
-     * @param string|null $firstLine firstLine
+     * @param bool|null $registered Determine if the Persona have a Tripartie account
      *
      * @return self
      */
-    public function setFirstLine($firstLine)
+    public function setRegistered($registered)
     {
-        if (is_null($firstLine)) {
-            throw new \InvalidArgumentException('non-nullable firstLine cannot be null');
+        if (is_null($registered)) {
+            throw new \InvalidArgumentException('non-nullable registered cannot be null');
         }
-        $this->container['firstLine'] = $firstLine;
+        $this->container['registered'] = $registered;
 
         return $this;
     }
 
     /**
-     * Gets secondLine
+     * Gets verified
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getSecondLine()
+    public function getVerified()
     {
-        return $this->container['secondLine'];
+        return $this->container['verified'];
     }
 
     /**
-     * Sets secondLine
+     * Sets verified
      *
-     * @param string|null $secondLine secondLine
+     * @param bool|null $verified Determine if the Persona have a VERIFIED Tripartie account
      *
      * @return self
      */
-    public function setSecondLine($secondLine)
+    public function setVerified($verified)
     {
-        if (is_null($secondLine)) {
-            array_push($this->openAPINullablesSetToNull, 'secondLine');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('secondLine', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($verified)) {
+            throw new \InvalidArgumentException('non-nullable verified cannot be null');
         }
-        $this->container['secondLine'] = $secondLine;
-
-        return $this;
-    }
-
-    /**
-     * Gets buildingName
-     *
-     * @return string|null
-     */
-    public function getBuildingName()
-    {
-        return $this->container['buildingName'];
-    }
-
-    /**
-     * Sets buildingName
-     *
-     * @param string|null $buildingName buildingName
-     *
-     * @return self
-     */
-    public function setBuildingName($buildingName)
-    {
-        if (is_null($buildingName)) {
-            array_push($this->openAPINullablesSetToNull, 'buildingName');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('buildingName', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['buildingName'] = $buildingName;
-
-        return $this;
-    }
-
-    /**
-     * Gets buildingFloor
-     *
-     * @return string|null
-     */
-    public function getBuildingFloor()
-    {
-        return $this->container['buildingFloor'];
-    }
-
-    /**
-     * Sets buildingFloor
-     *
-     * @param string|null $buildingFloor buildingFloor
-     *
-     * @return self
-     */
-    public function setBuildingFloor($buildingFloor)
-    {
-        if (is_null($buildingFloor)) {
-            array_push($this->openAPINullablesSetToNull, 'buildingFloor');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('buildingFloor', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['buildingFloor'] = $buildingFloor;
-
-        return $this;
-    }
-
-    /**
-     * Gets gateOrPortalOrInboxCode
-     *
-     * @return string|null
-     */
-    public function getGateOrPortalOrInboxCode()
-    {
-        return $this->container['gateOrPortalOrInboxCode'];
-    }
-
-    /**
-     * Sets gateOrPortalOrInboxCode
-     *
-     * @param string|null $gateOrPortalOrInboxCode gateOrPortalOrInboxCode
-     *
-     * @return self
-     */
-    public function setGateOrPortalOrInboxCode($gateOrPortalOrInboxCode)
-    {
-        if (is_null($gateOrPortalOrInboxCode)) {
-            array_push($this->openAPINullablesSetToNull, 'gateOrPortalOrInboxCode');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('gateOrPortalOrInboxCode', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['gateOrPortalOrInboxCode'] = $gateOrPortalOrInboxCode;
-
-        return $this;
-    }
-
-    /**
-     * Gets formattedAddress
-     *
-     * @return string|null
-     */
-    public function getFormattedAddress()
-    {
-        return $this->container['formattedAddress'];
-    }
-
-    /**
-     * Sets formattedAddress
-     *
-     * @param string|null $formattedAddress formattedAddress
-     *
-     * @return self
-     */
-    public function setFormattedAddress($formattedAddress)
-    {
-        if (is_null($formattedAddress)) {
-            throw new \InvalidArgumentException('non-nullable formattedAddress cannot be null');
-        }
-        $this->container['formattedAddress'] = $formattedAddress;
+        $this->container['verified'] = $verified;
 
         return $this;
     }

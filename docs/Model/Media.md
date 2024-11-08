@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **publicUrl** | **string** |  |
 **file** | **\SplFileObject** |  | [optional]
 **b64EncodedTmpFile** | **string** |  | [optional]
-**thumbnail** | **string** | Associated 374x374 pixels small thumbnail | [optional]
+**thumbnail** | **string** | Associated 30% of original size thumbnail | [optional]
 **original** | **string** |  | [optional]
 **owner** | **string** |  | [optional]
 **offers** | **string[]** |  | [optional]

@@ -18,8 +18,10 @@ Name | Type | Description | Notes
 **balanceToRefund** | **float** |  | [optional]
 **feesToRefund** | **float** |  | [optional]
 **forceRefundShipping** | **bool** | Shipping is never refunded on purpose. Once deposited (parcel), we are billed for it. | [optional]
-**review** | **string** |  | [optional]
-**rating** | **int** |  | [optional]
+**buyerReview** | **string** |  | [optional]
+**buyerRating** | **int** |  | [optional]
+**sellerReview** | **string** |  | [optional]
+**sellerRating** | **int** |  | [optional]
 **handOverCode** | **string** |  | [optional]
 **parcels** | [**\Tripartie\SafeCheckout\Model\TransactionParcelRead[]**](TransactionParcelRead.md) |  | [optional]
 **createdAt** | **\DateTime** |  |
@@ -33,6 +35,8 @@ Name | Type | Description | Notes
 **totalFees** | **float** |  | [optional] [readonly]
 **awaitedParty** | **string** | Determine who is awaited (actor) for the next transition | [optional] [readonly]
 **statusExpiration** | **\DateTime** | Yield if eligible the date-time at which the transaction state expire. | [optional] [readonly]
+**review** | **string** |  | [optional] [readonly]
+**rating** | **int** |  | [optional] [readonly]
 **processorStatus** | **string** | Automagically infer on what state the entity is at the Payment Processor. | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

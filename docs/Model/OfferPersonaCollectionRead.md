@@ -1,9 +1,12 @@
-# # OfferPersonaRead
+# # OfferPersonaCollectionRead
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] [readonly]
+**firstName** | **string** |  | [optional]
+**lastName** | **string** |  | [optional]
 **registered** | **bool** | Determine if the Persona have a Tripartie account | [optional] [readonly]
 **verified** | **bool** | Determine if the Persona have a VERIFIED Tripartie account | [optional] [readonly]
 

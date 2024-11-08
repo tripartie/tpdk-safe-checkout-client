@@ -1,6 +1,6 @@
 <?php
 /**
- * UserBankAccountAuthenticatedReadTest
+ * OfferPersonaCollectionReadTest
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ namespace Tripartie\SafeCheckout\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * UserBankAccountAuthenticatedReadTest Class Doc Comment
+ * OfferPersonaCollectionReadTest Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -40,7 +40,7 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class UserBankAccountAuthenticatedReadTest extends TestCase
+class OfferPersonaCollectionReadTest extends TestCase
 {
 
     /**
@@ -72,81 +72,54 @@ class UserBankAccountAuthenticatedReadTest extends TestCase
     }
 
     /**
-     * Test "UserBankAccountAuthenticatedRead"
+     * Test "OfferPersonaCollectionRead"
      */
-    public function testUserBankAccountAuthenticatedRead()
+    public function testOfferPersonaCollectionRead()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "iban"
+     * Test attribute "id"
      */
-    public function testPropertyIban()
+    public function testPropertyId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "bic"
+     * Test attribute "firstName"
      */
-    public function testPropertyBic()
+    public function testPropertyFirstName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "createdAt"
+     * Test attribute "lastName"
      */
-    public function testPropertyCreatedAt()
+    public function testPropertyLastName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "updatedAt"
+     * Test attribute "registered"
      */
-    public function testPropertyUpdatedAt()
+    public function testPropertyRegistered()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "providerName"
+     * Test attribute "verified"
      */
-    public function testPropertyProviderName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "providerCreatedAt"
-     */
-    public function testPropertyProviderCreatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "providerUpdatedAt"
-     */
-    public function testPropertyProviderUpdatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "processorStatus"
-     */
-    public function testPropertyProcessorStatus()
+    public function testPropertyVerified()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
